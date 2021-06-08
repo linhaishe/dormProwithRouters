@@ -1,0 +1,151 @@
+@import url(common.css);
+@import url(nav.css);
+
+#addAdminContainer {
+  display: none;
+  /* display: block; */
+}
+
+#deleteAdminContainer {
+  display: none;
+  /* display: block; */
+}
+#modifyAdminContainer {
+  display: none;
+  /* display: block; */
+}
+
+.add-panel .panel-title {
+  position: absolute;
+  left: 50%;
+  margin-left: -20px;
+}
+
+.modify-panel .panel-title {
+  position: absolute;
+  left: 50%;
+  margin-left: -30px;
+}
+
+.add-panel,
+.delete-panel,
+.modify-panel {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-color: white;
+  padding: 20px;
+  /* justify-content: center; */
+}
+
+.add-panel {
+  margin-left: -205px;
+  margin-top: -200px;
+  width: 410px;
+  height: 400px;
+  display: flex;
+}
+
+.delete-panel {
+  margin-left: -190px;
+  margin-top: -62px;
+  width: 380px;
+  height: 124px;
+}
+
+.modify-panel {
+  margin-left: -206px;
+  margin-top: -190px;
+  width: 412px;
+  height: 380px;
+}
+
+.add-panel .close,
+.delete-panel .close,
+.modify-panel .close {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: 0px solid transparent;
+  outline: none;
+  cursor: pointer;
+  width: 30px;
+  position: absolute;
+  right: 10px;
+  color: lightgray;
+}
+
+.mb-3 {
+  display: flex;
+  align-items: center;
+  /* margin-left: 29px; */
+}
+
+.add-panel form,
+.modify-panel form {
+  width: 100%;
+  margin-top: 50px;
+}
+
+.add-panel label {
+  font-size: 12px;
+  /* border: 1px solid red; */
+  /* width: 15%; */
+  /* padding: 10px; */
+}
+
+.modify-panel label {
+  font-size: 12px;
+  /* border: 1px solid red; */
+  width: 15%;
+  /* padding: 10px; */
+}
+
+.add-panel form .col-sm-10,
+.modify-panel form .col-sm-10 {
+  width: 79%;
+}
+
+.add-panel form .form-control {
+  font-size: 12px;
+}
+
+#addAdminContainer .col-auto,
+#modifyAdminContainer .col-auto {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+#deleteAdminContainer .col-auto,
+#modifyAdminContainer .col-auto {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+#deleteAdminContainer p {
+  text-align: center;
+}
+
+#deleteAdminContainer i {
+  margin-right: 10px;
+}
+
+.form-floating {
+  width: 79%;
+}
+
+.add-panel .dropdown,
+.modify-panel .dropdown {
+  width: 80%;
+}
+
+.add-panel .dropdown .btn,
+.modify-panel .dropdown .btn {
+  margin-left: 0;
+}
+
+/* .bi-person {
+  color: #0f6efd;
+} */

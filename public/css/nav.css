@@ -1,0 +1,75 @@
+@import url(common.css);
+
+#top-menu {
+  position: absolute;
+  margin-left: 200px;
+  padding: 20px;
+  margin-bottom: 110px;
+  width: 85%;
+}
+
+#separate-line {
+  width: 100%;
+  height: 1px;
+  border: 1px solid lightgray;
+  margin-top: 20px;
+}
+
+.navbar > .logomenu {
+  justify-content: left;
+  /* color: white; */
+  align-items: center;
+  align-content: center;
+}
+
+.logomenu .bi-list {
+  color: white;
+  font-size: 30px;
+  margin-right: 20px;
+}
+
+.logomenu .bi-arrows-fullscreen {
+  font-size: 20px;
+  color: white;
+  position: absolute;
+  right: 145px;
+}
+
+.btn-group {
+  position: absolute;
+  right: 15px;
+}
+#nav-left {
+  margin-top: 60px;
+  position: fixed;
+  min-width: 250px;
+  top: 0px;
+  left: 0px;
+  width: 20%;
+  height: 100%;
+  /* border-right: solid;
+  border-color: rgba(0, 22, 22, 0.4); */
+}
+
+#nav-left a {
+  /*a标签是行内元素，不能设置宽高，设置为block后可以设置padding等宽高属性*/
+  display: block;
+  /*margin:10px 30px 效果一样*/
+  /*通过padding c处理成居中的效果*/
+  /* padding: 10px 30px; */
+  color: #4d4e53;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#nav-left li {
+  margin-top: 20px;
+  color: #4d4e53;
+  /* border-top: 1px solid; */
+  list-style: none;
+  /*这里设置relative的作用在于什么？*/
+  /* position: relative; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+}

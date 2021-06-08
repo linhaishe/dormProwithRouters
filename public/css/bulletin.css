@@ -1,0 +1,131 @@
+@import url(common.css);
+@import url(nav.css);
+
+#addBulletinContainer {
+  display: none;
+  /* display: block; */
+}
+
+#deleteNewscontainer {
+  display: none;
+  /* display: block; */
+}
+#modifyNewscontainer {
+  display: none;
+  /* display: block; */
+}
+
+.add-panel .panel-title {
+  position: absolute;
+  left: 50%;
+  margin-left: -20px;
+}
+
+.modity-panel .panel-title {
+  position: absolute;
+  left: 50%;
+  margin-left: -30px;
+}
+
+.add-panel,
+.delete-panel,
+.modity-panel {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-color: white;
+  padding: 20px;
+  /* justify-content: center; */
+}
+
+.add-panel {
+  margin-left: -205px;
+  margin-top: -159px;
+  width: 410px;
+  height: 318px;
+  display: flex;
+}
+
+.delete-panel {
+  margin-left: -190px;
+  margin-top: -62px;
+  width: 380px;
+  height: 124px;
+}
+
+.modity-panel {
+  margin-left: -206px;
+  margin-top: -225px;
+  width: 412px;
+  height: 450px;
+}
+
+.add-panel .close,
+.delete-panel .close,
+.modity-panel .close {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: 0px solid transparent;
+  outline: none;
+  cursor: pointer;
+  width: 30px;
+  position: absolute;
+  right: 10px;
+  color: lightgray;
+}
+
+.mb-3 {
+  display: flex;
+  align-items: center;
+  /* margin-left: 29px; */
+}
+
+.add-panel form,
+.modity-panel form {
+  margin-top: 50px;
+  width: 100%;
+}
+
+.add-panel label,
+.modity-panel label {
+  font-size: 12px;
+  /* border: 1px solid red; */
+  width: 21%;
+  /* padding: 10px; */
+}
+
+.add-panel form .col-sm-10,
+.modity-panel form .col-sm-10 {
+  width: 79%;
+}
+
+.add-panel form .form-control {
+  font-size: 12px;
+}
+
+#addBulletinContainer .col-auto,
+#modifyNewscontainer .col-auto {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+#deleteNewscontainer .col-auto,
+#modifyNewscontainer .col-auto {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+#deleteNewscontainer p {
+  text-align: center;
+}
+
+#deleteNewscontainer i {
+  margin-right: 10px;
+}
+
+.form-floating {
+  width: 79%;
+}

@@ -1,0 +1,202 @@
+@import url(common.css);
+@import url(nav.css);
+/* 
+#dorm-homepage {
+  position: absolute;
+  margin-left: 200px;
+  padding: 20px;
+  margin-bottom: 110px;
+  width: 85%;
+  display: none;
+  margin-top: 60px;
+} */
+
+/* .btn-group .exit {
+  min-width: 89px;
+  padding: 0;
+  text-align: center;
+  left: 20px;
+} */
+
+/* .bi-person-circle {
+  color: white;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  position: absolute;
+  right: 110px;
+} */
+
+/* .menu-row {
+  margin: 0 auto;
+  width: 95%;
+  height: 40px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+} */
+/* 
+#separate-line {
+  width: 100%;
+  height: 1px;
+  border: 1px solid lightgray;
+  margin-top: 20px;
+} */
+
+/* #add-container,
+#delete-container,
+#modify-container,
+#getFee-container {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.3);
+  position: absolute;
+  top: 0;
+} */
+
+#add-container {
+  display: none;
+  /* display: block; */
+}
+
+#delete-container {
+  display: none;
+  /* display: block; */
+}
+
+#modify-container {
+  display: none;
+  /* display: block; */
+}
+
+#getFee-container {
+  display: none;
+  /* display: block; */
+}
+
+/* 添加宿舍表格标题 */
+.add-panel #addspan {
+  position: absolute;
+  left: 50%;
+  margin-left: -20px;
+}
+
+.add-panel,
+.delete-panel,
+.modify-panel,
+.getFee-panel {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-color: white;
+  padding: 20px;
+  justify-content: center;
+}
+
+.add-panel {
+  margin-left: -205px;
+  margin-top: -159px;
+  width: 410px;
+  height: 318px;
+  display: flex;
+}
+
+.delete-panel,
+.getFee-panel {
+  margin-left: -190px;
+  margin-top: -62px;
+  width: 380px;
+  height: 124px;
+}
+
+.modify-panel {
+  margin-left: -206px;
+  margin-top: -190px;
+  width: 412px;
+  height: 380px;
+}
+
+.modify-panel .panel-title {
+  position: absolute;
+  left: 50%;
+  margin-left: -30px;
+}
+
+.add-panel .close,
+.delete-panel .close,
+.modify-panel .close,
+.getFee-panel .close {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: 0px solid transparent;
+  outline: none;
+  cursor: pointer;
+  width: 30px;
+  position: absolute;
+  right: 10px;
+  color: lightgray;
+}
+
+.mb-3 {
+  display: flex;
+  align-items: center;
+  /* margin-left: 29px; */
+}
+
+.add-panel form {
+  margin-top: 50px;
+}
+
+.add-panel label {
+  font-size: 12px;
+  /* border: 1px solid red; */
+  width: 32%;
+  /* padding: 10px; */
+}
+
+.modify-panel label {
+  font-size: 12px;
+  /* border: 1px solid red; */
+  width: 22%;
+  /* padding: 10px; */
+}
+
+.modify-panel form {
+  width: 100%;
+  margin-top: 50px;
+}
+
+.add-panel form .col-sm-10 {
+  width: 68%;
+}
+
+.modify-panel form .col-sm-10 {
+  width: 70%;
+}
+
+.add-panel form .form-control {
+  font-size: 12px;
+}
+
+#add-container .col-auto,
+#modify-container .col-auto {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+#delete-container .col-auto,
+#getFee-container .col-auto {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+#delete-container p,
+#getFee-container p {
+  text-align: center;
+}
+
+#delete-container i,
+#getFee-container i {
+  margin-right: 10px;
+}

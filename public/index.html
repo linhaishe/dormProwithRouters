@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>登入页面</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+
+    <!-- Bootstrap css icon files -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+
+    <!-- jquery link -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- common css -->
+    <!-- 已在login.css文件中引入 -->
+    <!-- <link rel="stylesheet" href="../css/common.css" /> -->
+
+    <!-- self css -->
+    <link rel="stylesheet" href="./css/login.css" />
+  </head>
+  <body>
+    <!-- <div id="container" class="con"></div> -->
+    <div id="login-panel">
+      <h1>宿舍管理系统</h1>
+      <hr />
+      <div class="inpBtn">
+        <i class="bi bi-person"></i>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control username"
+            id="floatingInput"
+            placeholder="Username"
+          />
+          <label for="floatingInput">Username</label>
+          <span class="warning" style="color: red">请输入正确的用户名</span>
+        </div>
+      </div>
+      <div class="inpBtn">
+        <i class="bi bi-key"></i>
+        <div class="form-floating">
+          <input
+            type="password"
+            class="form-control psw"
+            id="floatingPassword"
+            placeholder="Password"
+          />
+          <label for="floatingPassword">Password</label>
+          <span class="warning" style="color: red">请输入正确的密码</span>
+        </div>
+      </div>
+      <div class="radio-btn">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="flexRadioDefault"
+            id="flexRadioDefault1"
+          />
+          <label class="form-check-label" for="flexRadioDefault1"> 学生 </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="flexRadioDefault"
+            id="flexRadioDefault2"
+          />
+          <label class="form-check-label" for="flexRadioDefault2">
+            管理员
+          </label>
+        </div>
+      </div>
+      <span class="warning" style="color: red">请选择对应选项</span>
+
+      <button type="button" class="btn btn-primary login-btn">登入</button>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/login.js"></script>
+  </body>
+</html>

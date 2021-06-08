@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>公告主页</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+
+    <!-- Bootstrap css icon files -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+
+    <!-- jquery link -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- commonhtml page -->
+    <!-- <link rel="import" href="nav.html" id="nav-page" /> -->
+
+    <!-- self css -->
+    <!-- homapage css -->
+    <link rel="stylesheet" href="./css/homapage.css" />
+    <!-- dorm css -->
+    <link rel="stylesheet" href="./css/dorm.css" />
+    <!-- student css -->
+    <!-- <link rel="stylesheet" href="./css/student.css" /> -->
+    <link rel="stylesheet" href="./css/studentForAdmin.css" />
+
+    <link rel="stylesheet" href="./css/bulletin.css" />
+    <link rel="stylesheet" href="./css/admin.css" />
+  </head>
+  <body>
+    <nav class="logomenu navbar navbar-dark bg-primary">
+      <div class="logomenu container-fluid">
+        <i class="bi bi-list"></i>
+        <a class="navbar-brand" href="#"> 宿舍管理系统 </a>
+        <i class="bi bi-arrows-fullscreen"></i>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-person-circle"
+          viewBox="0 0 16 16"
+        >
+          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+          <path
+            fill-rule="evenodd"
+            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+          />
+        </svg>
+
+        <div class="btn-group">
+          <button
+            type="button"
+            class="btn btn-primary dropdown-toggle userNamePanel"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            0
+          </button>
+          <ul class="dropdown-menu exit">
+            <li><a class="dropdown-item" href="#">退出</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div id="login-success">
+      <i class="bi bi-check2-circle"></i>
+      <span>登入成功</span>
+    </div>
+    <div id="nav-left">
+      <ul>
+        <li>
+          <i class="bi bi-bookmarks" style="color: #0f6efd"></i>
+          <a
+            class="nav-link"
+            href="javascript:;"
+            data-name="homepage"
+            style="color: #0f6efd"
+            >公告主页</a
+          >
+        </li>
+        <li>
+          <i class="bi bi-house"></i>
+          <a class="nav-link" href="javascript:;" data-name="dorm">宿舍管理</a>
+        </li>
+        <li>
+          <i class="bi bi-diagram-3"></i>
+          <a class="nav-link" href="javascript:;" data-name="student"
+            >学生管理</a
+          >
+        </li>
+        <li>
+          <i class="bi bi-chat-right-text"></i>
+          <a class="nav-link" href="javascript:;" data-name="bulletin"
+            >公告管理</a
+          >
+        </li>
+        <li>
+          <i class="bi bi-person"></i>
+          <a class="nav-link" href="javascript:;" data-name="admin"
+            >管理员管理</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div id="top-menu">
+      <!-- 导航栏显示 -->
+      <div class="menu-row">
+        <div class="menu-list active">
+          公告主页<a href="javascript:;" style="color: white">x</a>
+        </div>
+        <div class="menu-list">宿舍管理<a href="javascript:;">x</a></div>
+        <div class="menu-list">学生管理<a href="javascript:;">x</a></div>
+        <div class="menu-list">公告管理<a href="javascript:;">x</a></div>
+        <div class="menu-list">管理员管理<a href="javascript:;">x</a></div>
+      </div>
+      <div id="separate-line"></div>
+    </div>
+    <!-- 公告主页 -->
+    <div id="homepage">
+      <!-- 导航栏显示 -->
+      <div id="newsPage" class="list-group">
+        <!-- <a href="#" class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">List group item heading</h5>
+            <small>3 days ago</small>
+          </div>
+          <p class="mb-1">Some placeholder content in a paragraph.</p>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">List group item heading</h5>
+            <small class="text-muted">3 days ago</small>
+          </div>
+          <p class="mb-1">Some placeholder content in a paragraph.</p>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">List group item heading</h5>
+            <small class="text-muted">3 days ago</small>
+          </div>
+          <p class="mb-1">Some placeholder content in a paragraph.</p>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">List group item heading</h5>
+            <small class="text-muted">3 days ago</small>
+          </div>
+          <p class="mb-1">Some placeholder content in a paragraph.</p>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">List group item heading</h5>
+            <small class="text-muted">3 days ago</small>
+          </div>
+          <p class="mb-1">Some placeholder content in a paragraph.</p>
+        </a> -->
+      </div>
+      <div id="page-switch">
+        <button class="before">&lt</button>
+        <!-- <span>1</span> -->
+        <button class="next">&gt</button>
+      </div>
+    </div>
+
+    <!-- 宿舍主页 -->
+    <div id="dorm-homepage">
+      <div id="search-container">
+        <input placeholder="请输入查询内容" class="dormSearch" /><button
+          type="button"
+          class="btn btn-primary search"
+        >
+          搜索
+        </button>
+        <button type="button" class="btn btn-primary reset">重置</button
+        ><button type="button" class="btn btn-outline-success add-dorm">
+          添加宿舍
+        </button>
+      </div>
+      <div id="table-container">
+        <table class="table table-bordered">
+          <thead class="table-light">
+            <tr>
+              <th scope="col">宿舍编号</th>
+              <th scope="col">宿舍名称</th>
+              <th scope="col">宿舍人数</th>
+              <th scope="col">宿舍水电费余额(元)</th>
+              <th scope="col">宿舍状态</th>
+              <th scope="col">操作</th>
+            </tr>
+          </thead>
+          <tbody id="dormTbody">
+            <!-- <tr>
+              <th scope="row">1002</th>
+              <td>1002</td>
+              <td>2</td>
+              <td>5</td>
+              <td>正常</td>
+              <td>
+                <a href="#" class="delDorm">删除</a
+                ><a href="#" class="dormUpdate">修改</a><a href="#">发起催款</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">2001</th>
+              <td>2001</td>
+              <td>3</td>
+              <td>0</td>
+              <td>正常</td>
+              <td>
+                <a href="#" class="delDorm">删除</a
+                ><a href="#" class="dormUpdate">修改</a><a href="#">改为正常</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">3001</th>
+              <td>3001</td>
+              <td>4</td>
+              <td>0</td>
+              <td>催款中</td>
+              <td>
+                <a href="#" class="delDorm">删除</a
+                ><a href="#" class="dormUpdate">修改</a><a href="#">发起催款</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">4001</th>
+              <td>4001</td>
+              <td>5</td>
+              <td>0</td>
+              <td>正常</td>
+              <td>
+                <a href="#" class="delDorm">删除</a
+                ><a href="#" class="dormUpdate">修改</a><a href="#">发起催款</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">5001</th>
+              <td>5001</td>
+              <td>5</td>
+              <td>0</td>
+              <td>正常</td>
+              <td>
+                <a href="#" class="delDorm">删除</a
+                ><a href="#" class="dormUpdate">修改</a><a href="#">发起催款</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">6001</th>
+              <td>6001</td>
+              <td>5</td>
+              <td>0</td>
+              <td>正常</td>
+              <td>
+                <a href="#" class="delDorm">删除</a
+                ><a href="#" class="dormUpdate">修改</a><a href="#">发起催款</a>
+              </td>
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+      <div id="page-switch">
+        <button class="before">&lt</button>
+        <!-- <a href="javascript:;">1</a> -->
+        <button class="next">&gt</button>
+      </div>
+    </div>
+    <!-- 添加宿舍 -->
+    <div id="add-container">
+      <div class="add-panel">
+        <span id="addspan">添加宿舍</span>
+        <button class="close">X</button>
+        <form>
+          <div class="mb-3 row">
+            <label for="dormId" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>宿舍编号</label
+            >
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="dormId" />
+            </div>
+            <span class="warning" style="color: red">请输入正确内容</span>
+          </div>
+          <div class="mb-3 row">
+            <label for="dormName" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>宿舍名称</label
+            >
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="dormName" />
+            </div>
+            <span class="warning" style="color: red">请输入正确内容</span>
+          </div>
+          <div class="mb-3 row">
+            <label for="bill" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>水费余额</label
+            >
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="bill" />
+            </div>
+            <span class="warning" style="color: red">请输入正确内容</span>
+          </div>
+          <div class="col-auto">
+            <button type="button" class="btn btn-outline-secondary cancel">
+              取消
+            </button>
+            <button type="button" class="btn btn-primary add-dorm-confirm">
+              确定
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- 删除宿舍 -->
+    <div id="delete-container">
+      <div class="delete-panel">
+        <span id="addspan">提示</span>
+        <button class="close">X</button>
+        <p>
+          <i class="bi bi-exclamation-circle-fill" style="color: orange"></i
+          >确认是否删除该宿舍?
+        </p>
+        <div class="col-auto">
+          <button type="button" class="btn btn-outline-secondary cancel">
+            取消
+          </button>
+          <button type="submit" class="btn btn-primary delete-dorm-confirm">
+            确定
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- 修改宿舍 -->
+    <div id="modify-container">
+      <div class="modify-panel">
+        <span class="panel-title">修改宿舍信息</span>
+        <button class="close">X</button>
+        <form>
+          <div class="mb-3 row">
+            <label for="modify-dormId" class="col-sm-2 col-form-label"
+              ><span>&nbsp&nbsp</span>宿舍编号</label
+            >
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="modify-dormId"
+                disabled
+              />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="modify-dormName" class="col-sm-2 col-form-label"
+              ><span style="color: red">*</span>宿舍名称</label
+            >
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="modify-dormName" />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="numOfPeople" class="col-sm-2 col-form-label"
+              ><span>&nbsp&nbsp</span>宿舍人数</label
+            >
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="numOfPeople"
+                disabled
+              />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="chargefee" class="col-sm-2 col-form-label"
+              ><span style="color: red">*</span>剩余水电</label
+            >
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="chargefee" />
+            </div>
+          </div>
+          <div class="col-auto">
+            <button type="button" class="btn btn-outline-secondary cancel">
+              取消
+            </button>
+            <button type="submit" class="btn btn-primary modify-dorm-confirm">
+              确定
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- 发起催款申请 -->
+    <div id="getFee-container">
+      <div class="getFee-panel">
+        <span id="getFeeSpan">提示</span>
+        <button class="close">X</button>
+        <p>
+          <i class="bi bi-exclamation-circle-fill" style="color: orange"></i
+          >确认是否修改该宿舍状态?
+        </p>
+        <div class="col-auto">
+          <button type="button" class="btn btn-outline-secondary cancel">
+            取消
+          </button>
+          <button type="submit" class="btn btn-primary push-get-fee">
+            确定
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 学生管理主页 -->
+    <!-- 管理页面主面板 -->
+    <div id="student-admin-homepage">
+      <div id="search-container">
+        <input placeholder="请输入学生姓名" class="stuSearch" /><button
+          type="button"
+          class="btn btn-primary search"
+        >
+          搜索
+        </button>
+        <button type="button" class="btn btn-primary reset">重置</button
+        ><button type="button" class="btn btn-outline-success add-student">
+          添加学生
+        </button>
+      </div>
+      <div id="table-container">
+        <table class="table table-bordered">
+          <thead class="table-light">
+            <tr>
+              <th scope="col">学号</th>
+              <th scope="col">姓名</th>
+              <th scope="col">账号</th>
+              <th scope="col">学生所属宿舍</th>
+              <th scope="col">宿舍水电费余额(元)</th>
+              <th scope="col">宿舍状态</th>
+              <th scope="col">操作</th>
+            </tr>
+          </thead>
+          <tbody id="mainPageTbody">
+            <tr>
+              <th scope="row">1002</th>
+              <td>1002</td>
+              <td>2</td>
+              <td>2</td>
+              <td>5</td>
+              <td>正常</td>
+              <td>
+                <a class="delStu" href="#">删除</a
+                ><a class="stuUpdate" href="#">修改</a
+                ><a class="stuCheckFee" href="#">查看缴费记录</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">2001</th>
+              <td>2001</td>
+              <td>2</td>
+              <td>3</td>
+              <td>0</td>
+              <td>正常</td>
+              <td>
+                <a class="delStu" href="#">删除</a
+                ><a class="stuUpdate" href="#">修改</a
+                ><a class="stuCheckFee" href="#">查看缴费记录</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">3001</th>
+              <td>2</td>
+              <td>3001</td>
+              <td>4</td>
+              <td>0</td>
+              <td>催款中</td>
+              <td>
+                <a class="delStu" href="#">删除</a
+                ><a class="stuUpdate" href="#">修改</a
+                ><a class="stuCheckFee" href="#">查看缴费记录</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">4001</th>
+              <td>4001</td>
+              <td>2</td>
+              <td>5</td>
+              <td>0</td>
+              <td>正常</td>
+              <td>
+                <a class="delStu" href="#">删除</a
+                ><a class="stuUpdate" href="#">修改</a
+                ><a class="stuCheckFee" href="#">查看缴费记录</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">5001</th>
+              <td>5001</td>
+              <td>2</td>
+              <td>5</td>
+              <td>0</td>
+              <td>正常</td>
+              <td>
+                <a class="delStu" href="#">删除</a
+                ><a class="stuUpdate" href="#">修改</a
+                ><a class="stuCheckFee" href="#">查看缴费记录</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">6001</th>
+              <td>6001</td>
+              <td>2</td>
+              <td>5</td>
+              <td>0</td>
+              <td>正常</td>
+              <td>
+                <a class="delStu" href="#">删除</a
+                ><a class="stuUpdate" href="#">修改</a
+                ><a class="stuCheckFee" href="#">查看缴费记录</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="page-switch">
+        <button class="before">&lt</button>
+        <a href="javascript:;">1</a>
+        <button class="next">&gt</button>
+      </div>
+    </div>
+
+    <!-- 充值记录查询页面 -->
+    <div id="charge-record-container">
+      <div id="charge-record-panel">
+        <span>缴费记录</span>
+        <button class="close">X</button>
+        <table class="table">
+          <thead class="table-light">
+            <tr>
+              <th scope="col">缴费金额</th>
+              <th scope="col">缴费时间</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">5</th>
+              <td>2021-5-10 15:03:22</td>
+            </tr>
+            <tr>
+              <th scope="row">6</th>
+              <td>2021-5-10 15:03:22</td>
+            </tr>
+          </tbody>
+        </table>
+        <div id="page-switch">
+          <button>&lt</button>
+          <a href="javascript:;">1</a>
+          <button>&gt</button>
+        </div>
+      </div>
+    </div>
+    <!-- 添加学生操作页面 -->
+    <div id="addStuContainer">
+      <div class="add-panel">
+        <span class="panel-title">添加学生</span>
+        <button class="close">X</button>
+        <form>
+          <div class="mb-3 row">
+            <label for="stuId" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>学号</label
+            >
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="stuId" />
+            </div>
+            <span class="warning" style="color: red">请输入正确内容</span>
+          </div>
+
+          <div class="mb-3 row">
+            <label for="stuName" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>姓名</label
+            >
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="stuName" />
+            </div>
+            <span class="warning" style="color: red">请输入正确内容</span>
+          </div>
+          <div class="mb-3 row">
+            <label for="stuAccount" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>账号</label
+            >
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="stuAccount" />
+            </div>
+            <span class="warning" style="color: red">请输入正确内容</span>
+          </div>
+          <div class="mb-3 row">
+            <label for="stuPwd" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>密码</label
+            >
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="stuPwd" />
+            </div>
+            <span class="warning" style="color: red">请输入正确内容</span>
+          </div>
+          <div class="mb-3 row">
+            <label for="add-select-dorm" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>所属宿舍</label
+            >
+            <div class="dropdown">
+              <button
+                class="
+                  btn btn-outline-secondary
+                  dropdown-toggle
+                  add-dorm-dropdown-btn
+                "
+                type="button"
+                id="add-select-dorm"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                选择所属宿舍
+              </button>
+              <ul
+                class="dropdown-menu main-dropdown-menu add-select-dorm"
+                aria-labelledby="add-select-dorm"
+              >
+                <!-- <li><a class="dropdown-item" href="#">1003</a></li> -->
+              </ul>
+            </div>
+            <span class="warning" style="color: red">请选择正确内容</span>
+          </div>
+
+          <div class="col-auto">
+            <button type="button" class="btn btn-outline-secondary cancel">
+              取消
+            </button>
+
+            <button type="submit" class="btn btn-primary add-stu-confirm">
+              确定
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- 删除学生页面 -->
+    <div id="deleteStuContainer">
+      <div class="delete-panel">
+        <span class="panel-title">提示</span>
+        <button class="close">X</button>
+        <p>
+          <i class="bi bi-exclamation-circle-fill" style="color: orange"></i
+          >确认是否删除该学生?
+        </p>
+        <div class="col-auto">
+          <button type="button" class="btn btn-outline-secondary cancel">
+            取消
+          </button>
+          <button type="submit" class="btn btn-primary delete-stu-confirm">
+            确定
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- 修改学生页面 -->
+    <div id="modifyStuContainer">
+      <div class="modity-panel">
+        <span class="panel-title">修改学生信息</span>
+        <button class="close">X</button>
+        <form>
+          <div class="mb-3 row">
+            <label for="modify-stuId" class="col-sm-2 col-form-label"
+              ><span style="color: red">*</span>学号</label
+            >
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="modify-stuId"
+                disabled
+              />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="modify-stuName" class="col-sm-2 col-form-label"
+              ><span style="color: red">*</span>姓名</label
+            >
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="modify-stuName" />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="modify-stuAccount" class="col-sm-2 col-form-label"
+              ><span style="color: red">*</span>账号</label
+            >
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="modify-stuAccount"
+                disabled
+              />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="modifyStuPwd" class="col-sm-2 col-form-label"
+              ><span style="color: red">*</span>密码</label
+            >
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="modifyStuPwd" />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="modify-select-dorm" class="col-sm-2 col-form-label"
+              ><span style="color: red">*</span>所属宿舍</label
+            >
+            <div class="dropdown">
+              <button
+                class="
+                  btn btn-outline-secondary
+                  dropdown-toggle
+                  modify-dorm-dropdown-btn
+                "
+                type="button"
+                id="modify-select-dorm"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                请选择所属宿舍
+              </button>
+              <ul
+                class="dropdown-menu main-dropdown-menu modify-select-dorm"
+                aria-labelledby="modify-select-dorm"
+              >
+                <!-- <li><a class="dropdown-item" href="#">1003</a></li>
+                <li><a class="dropdown-item" href="#">1004</a></li> -->
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-auto">
+            <button type="button" class="btn btn-outline-secondary cancel">
+              取消
+            </button>
+            <button type="submit" class="btn btn-primary modify-stu-confirm">
+              确定
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- 公告管理主页 -->
+    <div id="bulletin-homepage">
+      <div id="search-container">
+        <input placeholder="请输入公告标题" class="bulletinSearch" /><button
+          type="button"
+          class="btn btn-primary search"
+        >
+          搜索
+        </button>
+        <button type="button" class="btn btn-primary reset">重置</button
+        ><button
+          type="button"
+          id="addBtn"
+          class="btn btn-outline-success add-news"
+        >
+          添加公告
+        </button>
+      </div>
+      <div id="table-container">
+        <table class="table table-bordered">
+          <thead class="table-light">
+            <tr>
+              <th scope="col">公告编号</th>
+              <th scope="col">公告标题</th>
+              <th scope="col">公告内容</th>
+              <th scope="col">发布时间</th>
+              <th scope="col">发布人</th>
+              <th scope="col">操作</th>
+            </tr>
+          </thead>
+          <tbody id="newsTbody">
+            <!-- <tr>
+              <th scope="row">1002</th>
+              <td>1002</td>
+              <td>2</td>
+              <td>5</td>
+              <td>正常</td>
+              <td>
+                <a class="delNews" href="#">删除</a
+                ><a class="newsUpdate" href="#">修改</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">2001</th>
+              <td>2001</td>
+              <td>3</td>
+              <td>0</td>
+              <td>正常</td>
+              <td>
+                <a class="delNews" href="#">删除</a
+                ><a class="newsUpdate" href="#">修改</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">3001</th>
+              <td>3001</td>
+              <td>4</td>
+              <td>0</td>
+              <td>催款中</td>
+              <td>
+                <a class="delNews" href="#">删除</a
+                ><a class="newsUpdate" href="#">修改</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">4001</th>
+              <td>4001</td>
+              <td>5</td>
+              <td>0</td>
+              <td>正常</td>
+              <td>
+                <a class="delNews" href="#">删除</a
+                ><a class="newsUpdate" href="#">修改</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">5001</th>
+              <td>5001</td>
+              <td>5</td>
+              <td>0</td>
+              <td>正常</td>
+              <td>
+                <a class="delNews" href="#">删除</a
+                ><a class="newsUpdate" href="#">修改</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">6001</th>
+              <td>6001</td>
+              <td>5</td>
+              <td>0</td>
+              <td>正常</td>
+              <td>
+                <a class="delNews" href="#">删除</a
+                ><a class="newsUpdate" href="#">修改</a>
+              </td>
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+      <div id="page-switch">
+        <button class="before">&lt</button>
+        <a href="javascript:;">1</a>
+        <button class="next">&gt</button>
+      </div>
+    </div>
+    <!-- 添加公告 -->
+    <div id="addBulletinContainer">
+      <div class="add-panel">
+        <span class="panel-title">添加公告</span>
+        <button class="close">X</button>
+        <form>
+          <div class="mb-3 row">
+            <label for="newsTitle" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>公告标题</label
+            >
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="newsTitle" />
+            </div>
+            <span class="warning" style="color: red">请输入正确内容</span>
+          </div>
+          <div class="mb-3 row">
+            <label for="news-content" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>公告内容</label
+            >
+            <div class="form-floating">
+              <textarea
+                class="form-control"
+                placeholder="Leave a comment here"
+                id="news-content"
+                style="height: 100px"
+              ></textarea>
+            </div>
+            <span class="warning" style="color: red">请输入正确内容</span>
+          </div>
+          <div class="col-auto">
+            <button type="button" class="btn btn-outline-secondary cancel">
+              取消
+            </button>
+            <button type="submit" class="btn btn-primary add-bulletin-confirm">
+              确定
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- 删除公告 -->
+    <div id="deleteNewscontainer">
+      <div class="delete-panel">
+        <span class="panel-title">提示</span>
+        <button class="close">X</button>
+        <p>
+          <i class="bi bi-exclamation-circle-fill" style="color: orange"></i
+          >确认是否删除该公告?
+        </p>
+        <div class="col-auto">
+          <button type="button" class="btn btn-outline-secondary cancel">
+            取消
+          </button>
+          <button type="submit" class="btn btn-primary delete-bulletin-confirm">
+            确定
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- 修改公告 -->
+    <div id="modifyNewscontainer">
+      <div class="modity-panel">
+        <span class="panel-title">修改公告</span>
+        <button class="close">X</button>
+        <form>
+          <div class="mb-3 row">
+            <label for="newsId" class="col-sm-2 col-form-label"
+              ><span>&nbsp&nbsp</span>公告编号</label
+            >
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="newsId" disabled />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="newTitle" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>公告标题</label
+            >
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="newTitle" />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="modify-news-content" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>公告内容</label
+            >
+            <div class="form-floating">
+              <textarea
+                class="form-control"
+                id="modify-news-content"
+                style="height: 100px"
+              ></textarea>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="uploadTime" class="col-sm-2 col-form-label"
+              ><span>&nbsp&nbsp</span>发布时间</label
+            >
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="uploadTime"
+                disabled
+              />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="uploader" class="col-sm-2 col-form-label"
+              ><span>&nbsp&nbsp</span>发布人</label
+            >
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="uploader" disabled />
+            </div>
+          </div>
+          <div class="col-auto">
+            <button type="button" class="btn btn-outline-secondary cancel">
+              取消
+            </button>
+            <button
+              type="submit"
+              class="btn btn-primary modify-bulletin-confirm"
+            >
+              确定
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- 管理员主页 -->
+    <div id="admin-homepage">
+      <div id="search-container">
+        <input placeholder="请输入学生姓名" class="adminSearch" /><button
+          type="button"
+          class="btn btn-primary search"
+        >
+          搜索
+        </button>
+        <button type="button" class="btn btn-primary reset">重置</button
+        ><button type="button" class="btn btn-outline-success add-admin">
+          添加管理员
+        </button>
+      </div>
+      <div id="table-container">
+        <table class="table table-bordered">
+          <thead class="table-light">
+            <tr>
+              <th scope="col">编号</th>
+              <th scope="col">姓名</th>
+              <th scope="col">账号</th>
+              <th scope="col">类型</th>
+              <th scope="col">操作</th>
+            </tr>
+          </thead>
+          <tbody id="adminTbody">
+            <!-- <tr>
+              <th scope="row">1002</th>
+              <td>1002</td>
+              <td>2</td>
+              <td>5</td>
+              <td>
+                <a class="delAdmin" href="#">删除</a
+                ><a class="updateAdmin" href="#">修改</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">2001</th>
+              <td>2001</td>
+              <td>3</td>
+              <td>0</td>
+              <td>
+                <a class="delAdmin" href="#">删除</a
+                ><a class="updateAdmin" href="#">修改</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">3001</th>
+              <td>3001</td>
+              <td>4</td>
+              <td>0</td>
+              <td>
+                <a class="delAdmin" href="#">删除</a
+                ><a class="updateAdmin" href="#">修改</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">4001</th>
+              <td>4001</td>
+              <td>5</td>
+              <td>0</td>
+              <td>
+                <a class="delAdmin" href="#">删除</a
+                ><a class="updateAdmin" href="#">修改</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">5001</th>
+              <td>5001</td>
+              <td>5</td>
+              <td>0</td>
+              <td>
+                <a class="delAdmin" href="#">删除</a
+                ><a class="updateAdmin" href="#">修改</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">6001</th>
+              <td>6001</td>
+              <td>5</td>
+              <td>0</td>
+              <td>
+                <a class="delAdmin" href="#">删除</a
+                ><a class="updateAdmin" href="#">修改</a>
+              </td>
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+      <div id="page-switch">
+        <button class="before">&lt</button>
+        <!-- <a href="javascript:;">1</a> -->
+        <button class="next">&gt</button>
+      </div>
+    </div>
+    <!-- 增加管理员 -->
+    <div id="addAdminContainer">
+      <div class="add-panel">
+        <span class="panel-title">添加管理员</span>
+        <button class="close">X</button>
+        <form>
+          <div class="mb-3 row">
+            <label for="add-admin-name" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>姓名</label
+            >
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="add-admin-name" />
+            </div>
+            <span class="warning" style="color: red">请输入正确内容</span>
+          </div>
+
+          <div class="mb-3 row">
+            <label for="add-admin-account" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>账号</label
+            >
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="add-admin-account" />
+            </div>
+            <span class="warning" style="color: red">请输入正确内容</span>
+          </div>
+
+          <div class="mb-3 row">
+            <label for="add-psw" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>密码</label
+            >
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="add-psw" />
+            </div>
+            <span class="warning" style="color: red">请输入正确内容</span>
+          </div>
+
+          <div class="mb-3 row">
+            <label for="add-admin-type" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>类型</label
+            >
+            <div class="dropdown">
+              <button
+                class="btn btn-outline-secondary dropdown-toggle"
+                type="button"
+                id="add-admin-type"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                请选择管理员类型
+              </button>
+              <ul
+                class="dropdown-menu Button-addAdmin main-dropdown-menu"
+                aria-labelledby="dropdownMenu Button-addAdmin"
+              >
+                <li><a class="dropdown-item" href="#">普通管理员</a></li>
+                <li><a class="dropdown-item" href="#">超级管理员</a></li>
+              </ul>
+            </div>
+            <span class="warning" style="color: red">请选择正确选项</span>
+          </div>
+
+          <div class="col-auto">
+            <button type="button" class="btn btn-outline-secondary cancel">
+              取消
+            </button>
+            <button type="submit" class="btn btn-primary add-admin-confirm">
+              确定
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- 删除管理员 -->
+    <div id="deleteAdminContainer">
+      <div class="delete-panel">
+        <span class="panel-title">提示</span>
+        <button class="close">X</button>
+        <p>
+          <i class="bi bi-exclamation-circle-fill" style="color: orange"></i
+          >确认是否删除该管理员?
+        </p>
+        <div class="col-auto">
+          <button type="button" class="btn btn-outline-secondary cancel">
+            取消
+          </button>
+          <button type="submit" class="btn btn-primary delete-admin-confirm">
+            确定
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- 修改管理员 -->
+    <div id="modifyAdminContainer">
+      <div class="modify-panel">
+        <span class="panel-title">修改管理员信息</span>
+        <button class="close">X</button>
+        <form>
+          <div class="mb-3 row">
+            <label for="modify-admin-id" class="col-sm-2 col-form-label"
+              ><span>&nbsp&nbsp</span>编号</label
+            >
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="modify-admin-id"
+                disabled
+              />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="modify-admin-name" class="col-sm-2 col-form-label"
+              ><span style="color: red">*</span>姓名</label
+            >
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="modify-admin-name" />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="modify-admin-account" class="col-sm-2 col-form-label"
+              ><span style="color: red">*</span>账号</label
+            >
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="modify-admin-account"
+                disabled
+              />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="modify-admin-pwd" class="col-sm-2 col-form-label"
+              ><span style="color: red">*</span>密码</label
+            >
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="modify-admin-pwd" />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="modify-admin-type" class="col-sm-2 col-form-label"
+              ><span style="color: red">*</span>类型</label
+            >
+            <div class="dropdown">
+              <button
+                class="btn btn-outline-secondary dropdown-toggle"
+                type="button"
+                id="modify-admin-type"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                请选择管理员类型
+              </button>
+              <ul
+                class="dropdown-menu modify-admin-ul"
+                aria-labelledby="dropdownMenu Button-modify-admin"
+              >
+                <li><a class="dropdown-item" href="#">普通管理员</a></li>
+                <li><a class="dropdown-item" href="#">超级管理员</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-auto">
+            <button type="button" class="btn btn-outline-secondary cancel">
+              取消
+            </button>
+            <button type="submit" class="btn btn-primary modify-admin-confirm">
+              确定
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+  crossorigin="anonymous"
+></script>
+<script src="./js/homepage.js"></script>
+<script src="./js/dorm.js"></script>
+<!-- <script src="./js/student.js"></script> -->
+<script src="./js/studentForAdmin.js"></script>
+<script src="./js/bulletin.js"></script>
+<script src="./js/admin.js"></script>

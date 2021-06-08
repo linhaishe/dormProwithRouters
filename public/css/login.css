@@ -1,0 +1,72 @@
+@import url(common.css);
+
+body {
+  background: url(../img/loginPage.jpeg) no-repeat center center;
+  background-attachment: fixed;
+  background-color: white;
+  background-size: cover;
+  /* background: white url(../images/loginPage.jpeg) no-repeat fixed center center; */
+}
+#login-panel {
+  height: 340px;
+  width: 320px;
+  background-color: rgba(192, 192, 192, 0.6);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -160px;
+  margin-top: -170px;
+  text-align: center;
+}
+
+#login-panel h1 {
+  margin-top: 20px;
+  font-size: 20px;
+  color: black;
+}
+.inpBtn {
+  display: flex;
+  margin-left: 30px;
+}
+
+.form-floating {
+  margin-left: 10px;
+}
+
+.form-floating input {
+  height: 28px;
+  width: 231px;
+}
+
+.form-floating > .form-control {
+  height: calc(1.5rem + 2px);
+}
+
+.form-floating > label {
+  padding: 5px;
+}
+
+.inpBtn i {
+  /* display: inline-block; */
+  margin-top: 5px;
+}
+
+.radio-btn {
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.form-check {
+  margin-left: 10px;
+}
+
+.login-btn {
+  margin-top: 10px;
+  width: 280px;
+}
+
+.warning {
+  font-size: 12px;
+  /* opacity: 0; */
+}

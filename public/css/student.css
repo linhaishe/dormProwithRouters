@@ -1,0 +1,315 @@
+@import url(common.css);
+@import url(nav.css);
+
+#student-admin-homepage {
+  position: absolute;
+  margin-left: 200px;
+  padding: 20px;
+  margin-bottom: 110px;
+  width: 85%;
+  /* border: 1px solid pink; */
+  display: none;
+  margin-top: 60px;
+}
+
+.btn-group .exit {
+  min-width: 89px;
+  padding: 0;
+  text-align: center;
+  left: 20px;
+}
+
+.bi-person-circle {
+  color: white;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  position: absolute;
+  right: 110px;
+}
+
+.menu-row {
+  margin: 0 auto;
+  width: 95%;
+  height: 40px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+
+  /* border: 1px solid red; */
+}
+
+#separate-line {
+  width: 100%;
+  height: 1px;
+  border: 1px solid lightgray;
+  margin-top: 20px;
+}
+
+#search-container {
+  /* border: 1px solid red; */
+  margin-top: 30px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  font-size: 12px;
+  margin-left: 20px;
+}
+
+#search-container input {
+  width: 200px;
+  font-size: 12px;
+  padding: 5px;
+}
+
+#table-container {
+  margin-top: 30px;
+  text-align: center;
+}
+
+#table-container a {
+  margin-left: 5px;
+}
+
+#charge-record-container {
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid red; */
+  background-color: rgba(128, 128, 128, 0.3);
+  position: absolute;
+  top: 0;
+  display: none;
+}
+
+#charge-record-panel {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -342px;
+  margin-top: -150px;
+  width: 684px;
+  height: 300px;
+  background-color: white;
+  padding: 20px;
+
+  /* border: 1px solid red; */
+}
+
+#charge-record-panel #close {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: 0px solid transparent;
+  outline: none;
+  cursor: pointer;
+  width: 30px;
+  position: absolute;
+  right: 10px;
+  color: lightgray;
+}
+
+#charge-record-container .table {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#page-switch {
+  /* margin: 0 auto; */
+  text-align: center;
+}
+
+#page-switch button {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: 0px solid transparent;
+  outline: none;
+  cursor: pointer;
+  width: 30px;
+  color: lightgray;
+}
+
+#add-container,
+#charge-container {
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid red; */
+  background-color: rgba(128, 128, 128, 0.3);
+  position: absolute;
+  top: 0;
+}
+
+#charge-record-container {
+  display: none;
+  /* display: block; */
+}
+
+#add-container {
+  display: none;
+  /* display: block; */
+}
+
+#charge-container {
+  display: none;
+  /* display: block; */
+}
+
+.add-panel .panel-title {
+  position: absolute;
+  left: 50%;
+  margin-left: -20px;
+}
+
+.modity-panel .panel-title {
+  position: absolute;
+  left: 50%;
+  margin-left: -30px;
+}
+
+.add-panel,
+.charge-panel,
+.charge-panel {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-color: white;
+  padding: 20px;
+  /* justify-content: center; */
+}
+
+.add-panel {
+  margin-left: -205px;
+  margin-top: -209px;
+  width: 410px;
+  height: 368px;
+  display: flex;
+}
+
+.charge-panel {
+  margin-left: -190px;
+  margin-top: -100px;
+  width: 380px;
+  height: 200px;
+}
+
+.modity-panel {
+  margin-left: -206px;
+  margin-top: -190px;
+  width: 412px;
+  height: 380px;
+}
+
+.add-panel .close,
+.charge-panel .close,
+#charge-record-panel .close {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: 0px solid transparent;
+  outline: none;
+  cursor: pointer;
+  width: 30px;
+  position: absolute;
+  right: 10px;
+  color: lightgray;
+}
+
+.mb-3 {
+  display: flex;
+  align-items: center;
+  /* margin-left: 29px; */
+}
+
+.add-panel form {
+  width: 100%;
+  margin-top: 50px;
+}
+
+.charge-panel form {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.add-panel label {
+  font-size: 12px;
+  /* border: 1px solid red; */
+  width: 21%;
+  /* padding: 10px; */
+}
+.charge-panel label {
+  font-size: 12px;
+  /* border: 1px solid red; */
+  width: 23%;
+  /* padding: 10px; */
+}
+
+.add-panel form .col-sm-10 {
+  width: 79%;
+}
+
+.charge-panel form .col-sm-10 {
+  width: 70%;
+}
+
+.add-panel form .form-control,
+.charge-panel form .form-control {
+  font-size: 12px;
+}
+
+#add-container .col-auto {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+#charge-container .col-auto {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+#charge-container p {
+  text-align: center;
+}
+
+#charge-container i {
+  margin-right: 10px;
+}
+
+.form-floating {
+  width: 79%;
+}
+
+.add-panel .dropdown,
+.modity-panel .dropdown {
+  width: 79%;
+}
+
+.add-panel .dropdown .btn,
+.modity-panel .dropdown .btn {
+  margin-left: 0;
+}
+
+#page-switch {
+  /* margin: 0 auto; */
+  text-align: center;
+}
+
+#page-switch button {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: 0px solid transparent;
+  outline: none;
+  cursor: pointer;
+  width: 30px;
+  color: lightgray;
+  margin-top: 50px;
+}
+
+#page-switch a {
+  padding: 5px;
+  text-decoration: none;
+  color: black;
+}
