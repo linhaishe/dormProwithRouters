@@ -3,7 +3,7 @@ var router = express.Router();
 var db = require("../utils/db");
 
 //公告管理信息渲染
-router.get("/news/getnews", function (req, res) {
+router.get("/news/getnewscontrol", function (req, res) {
   console.log("here we are checkstudents", req.query);
   var sql = "select * from news";
   console.log(sql);

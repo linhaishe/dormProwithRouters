@@ -155,12 +155,14 @@
 
 /* 底部页面切换 */
 
-#page-switch {
+#page-switch,
+#news-page-switch {
   /* margin: 0 auto; */
   text-align: center;
 }
 
-#page-switch button {
+#page-switch button,
+#news-page-switch button {
   margin: 0;
   padding: 0;
   background-color: transparent;
@@ -173,7 +175,8 @@
 }
 
 /* 地底部页面链接 */
-#page-switch a {
+#page-switch a,
+#news-page-switch a {
   padding: 5px;
   text-decoration: none;
   color: black;

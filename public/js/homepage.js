@@ -145,7 +145,7 @@ $(".menu-list").each(function (i) {
         .text()
         .substring(0, $(this).text().length - 1)
     );
-    console.log(text);
+    console.log("text", text);
 
     // function addColor(_this) {
     //   $(_this).parent().siblings().children().css({ color: "" });
@@ -283,31 +283,40 @@ $(".reset").on("click", function () {
 // }
 
 var arr = []; //存所有的数据;
-var count = 5; //一页多少条数据
+var count1 = 5; //一页多少条数据
 var page = 1; //当前的页数
 var n;
 
-//公告页数据获取和渲染
-$.ajax({
-  url: "/news/getnews",
-  success: function (res) {
-    //获取数据成功后
-    console.log("获取公告内容", res.data);
-    if (res.data.length) {
-      //变成数组对象 [{},{},...]
-      //将数据的内容存放到数组中，方便获取和遍历
-      arr = res.data;
-      console.log(res);
-      console.log("arr", arr);
+function diaoyong() {
+  //公告页数据获取和渲染
+  $.ajax({
+    url: "/news/getnews",
+    data: { page: page, count: count1 },
+    success: function (res) {
+      //获取数据成功后
+      // var json2 = JSON.parse(res);
+      // var arr = json2.data;
 
-      //创建公告页面
-      createBulletin();
+      console.log(res.data);
+      if (res.data.length) {
+        console.log("公告页面arr", arr);
+        console.log("公告页面res", res.data);
+        //变成数组对象 [{},{},...]
+        //将数据的内容存放到数组中，方便获取和遍历
+        arr = res.data;
+        console.log(res);
+        console.log("获取公告内容res.count", res.count);
 
-      //创建page页面
-      createPage();
-    }
-  },
-});
+        //   //创建公告页面
+        createBulletin();
+        //   //创建page页面
+        createPage(res.count);
+      }
+    },
+  });
+}
+
+diaoyong();
 
 //获得公告内容，将内容渲染到html中
 
@@ -324,7 +333,9 @@ function createBulletin() {
   //遍历arr中的数据添加到节点中，并渲染
   //function中的参数 i,v 的顺序不能变
   //遍历中都有i,v,记得复习
-  $.each(arr.slice((page - 1) * count, page * count), function (i, v) {
+
+  $.each(arr, function (i, v) {
+    console.log(v.title);
     $("#newsPage").append(
       '  <a href="#" class="list-group-item list-group-item-action">\
           <div class="d-flex w-100 justify-content-between">\
@@ -345,44 +356,36 @@ function createBulletin() {
 }
 
 //创建页码
-function createPage() {
-  //arr
-  // 1  1
-  //5   1
-  //6   2
-  //10  2
-  //每页5个 页面数字获取 = 数组长度 / 每页显示数量 然后向上取整
-  //n   arr.length/count  向上取整
-  n = Math.ceil(arr.length / count);
-
+function createPage(n1) {
+  $("#news-page-switch a").remove();
+  n = Math.ceil(n1 / count1);
   for (var i = 1; i <= n; i++) {
-    $(".next").before($('<a href="javascript:;">' + i + "</a>"));
+    $(".newsNext").before($('<a href="javascript:;">' + i + "</a>"));
   }
 }
 
 //子元素有点击事件的时候，将点击事件加给父元素
 
-$("#page-switch").on("click", "a", function () {
+$("#news-page-switch").on("click", "a", function () {
   page = $(this).text();
-  createBulletin();
+  diaoyong();
 });
 
-// 点击向前
-$(".before").on("click", function () {
+// 点击向后退
+$(".newsBefore").on("click", function () {
   console.log("page", page);
   if (page > 1) {
     page--;
   }
-  createBulletin();
+  diaoyong();
 });
 
-//点击向后
-$(".next").on("click", function () {
-  console.log("n", n);
-  if (page < n) {
+//点击前进
+$(".newsNext").on("click", function () {
+  if (page <= n) {
     page++;
   }
-  createBulletin();
+  diaoyong();
 });
 
 //面包屑导航事件
@@ -397,36 +400,36 @@ $(".next").on("click", function () {
 
 //数据去重
 
-function unique(arr) {
-  return Array.from(new Set(arr));
-}
+// function unique(arr) {
+//   return Array.from(new Set(arr));
+// }
 
-var navArr = [];
-var uniqueArr = unique(navArr);
+// var navArr = [];
+// var uniqueArr = unique(navArr);
 
-for (var i = 0; i < uniqueArr.length; i++) {}
+// for (var i = 0; i < uniqueArr.length; i++) {}
 
 //添加样式
-function addCss() {
-  $(".menu-list").css({
-    height: "25px",
-    width: "100px",
-    background: "#0f6efd",
-    color: "white",
-    "text-align": "center",
-    "line-height": "25px",
-    "border-radius": "3px",
-    margin: "10px",
-    "font-size": "14px",
-  });
-  $(".menu-row").css({
-    display: "flex",
-    " align-items": "center",
-    "align-content": "center",
-  });
-  $(".menu-list a").css({
-    "text-decoration": "none",
-    color: "white",
-    "margin-left": "10px",
-  });
-}
+// function addCss() {
+//   $(".menu-list").css({
+//     height: "25px",
+//     width: "100px",
+//     background: "#0f6efd",
+//     color: "white",
+//     "text-align": "center",
+//     "line-height": "25px",
+//     "border-radius": "3px",
+//     margin: "10px",
+//     "font-size": "14px",
+//   });
+//   $(".menu-row").css({
+//     display: "flex",
+//     " align-items": "center",
+//     "align-content": "center",
+//   });
+//   $(".menu-list a").css({
+//     "text-decoration": "none",
+//     color: "white",
+//     "margin-left": "10px",
+//   });
+// }

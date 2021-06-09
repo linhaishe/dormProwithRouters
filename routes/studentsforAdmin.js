@@ -23,7 +23,8 @@ router.get("/student/getstudent", function (req, res) {
 });
 
 //学生添加
-router.post("/students/addstudent", function (req, res) {
+router.route("/students/addstudent").post(function (req, res) {
+  console.log("req.body.stuId", req);
   var updateSql =
     "insert into students values (null," +
     req.body.stuId +

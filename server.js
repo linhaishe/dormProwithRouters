@@ -3,6 +3,9 @@ var bodyParser = require("body-parser");
 
 var app = express();
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 //import files
 var adminRouter = require("./routes/admins");
 var dormsRouter = require("./routes/dorms");
@@ -18,8 +21,6 @@ app.use(newsRouter);
 app.use(stuRouter);
 app.use(loginRouter);
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 app.use(express.static("public"));
 
 //主页面信息查询

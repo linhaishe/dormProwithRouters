@@ -210,11 +210,11 @@ function adminRender() {
 }
 
 //获取管理员列表数据
-var arr = []; //存所有的数据;
-var count = 10; //一页多少条数据
-var page = 1; //当前的页数
-var id;
-var n;
+// var arr = []; //存所有的数据;
+// var count = 10; //一页多少条数据
+// var page = 1; //当前的页数
+// var id;
+// var n;
 
 function getAdmin() {
   $.ajax({
@@ -226,7 +226,7 @@ function getAdmin() {
       if (res.data.length) {
         arr = res.data;
         adminRender();
-        createAdminPage();
+        // createAdminPage();
       }
     },
   });
@@ -265,45 +265,45 @@ getAdmin();
 // }
 
 //创建页码
-function createAdminPage() {
-  //arr
-  // 1  1
-  //5   1
-  //6   2
-  //10  2
-  //每页5个 页面数字获取 = 数组长度 / 每页显示数量 然后向上取整
-  //n   arr.length/count  向上取整
-  n = Math.ceil(arr.length / count);
-  $("#page-switch a").remove();
-  for (var i = 1; i <= n; i++) {
-    $(".next").before($('<a href="javascript:;">' + i + "</a>"));
-  }
-}
+// function createAdminPage() {
+//   //arr
+//   // 1  1
+//   //5   1
+//   //6   2
+//   //10  2
+//   //每页5个 页面数字获取 = 数组长度 / 每页显示数量 然后向上取整
+//   //n   arr.length/count  向上取整
+//   n = Math.ceil(arr.length / count);
+//   $("#page-switch a").remove();
+//   for (var i = 1; i <= n; i++) {
+//     $(".next").before($('<a href="javascript:;">' + i + "</a>"));
+//   }
+// }
 
 //子元素有点击事件的时候，将点击事件加给父元素
 
-$("#page-switch").on("click", "a", function () {
-  page = $(this).text();
-  getAdmin();
-});
+// $("#page-switch").on("click", "a", function () {
+//   page = $(this).text();
+//   getAdmin();
+// });
 
 // 点击向前
-$(".before").on("click", function () {
-  console.log("page", page);
-  if (page > 1) {
-    page--;
-  }
-  getAdmin();
-});
+// $(".before").on("click", function () {
+//   console.log("page", page);
+//   if (page > 1) {
+//     page--;
+//   }
+//   getAdmin();
+// });
 
 //点击向后
-$(".next").on("click", function () {
-  console.log("n", n);
-  if (page < n) {
-    page++;
-  }
-  getAdmin();
-});
+// $(".next").on("click", function () {
+//   console.log("n", n);
+//   if (page < n) {
+//     page++;
+//   }
+//   getAdmin();
+// });
 
 //用户名为字符串，密码，类型，用户账号均为数字
 //添加管理员

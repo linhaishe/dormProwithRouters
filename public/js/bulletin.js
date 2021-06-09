@@ -66,7 +66,7 @@ var n;
 
 function getNews() {
   $.ajax({
-    url: "/news/getnews",
+    url: "/news/getnewscontrol",
     // data: {},
     type: "get",
     success: function (res) {
