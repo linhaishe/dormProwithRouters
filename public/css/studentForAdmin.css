@@ -273,3 +273,20 @@
 #reportDormProperty i {
   margin-right: 10px;
 }
+
+#stuDormRepair label {
+  font-size: 12px;
+  width: 25%;
+}
+
+#stuDormRepair .col-sm-10 {
+  width: 69%;
+}
+
+#stuDormRepair .table-bordered {
+  margin-top: 20px;
+}
+
+#stuDormRepair #page-switch button {
+  margin-top: -10px;
+}
