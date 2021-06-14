@@ -50,6 +50,7 @@ $(".close").on("click", function () {
   $("#charge-record-container").hide();
   $("#reportDormProperty").hide();
   $("#stuDormRepair").hide();
+  $("#stu-charge-fee-container").hide();
 });
 
 for (let i = 0; i < $(".cancel").length; i++) {
@@ -117,7 +118,7 @@ function stuRender() {
         '</td>\
               <td>\
                 <a class="delStu" href="#">删除</a><a class="stuUpdate" href="#">修改</a\
-                ><a class="stuCheckFee" href="#">查看缴费记录</a><a class="stuDormReport" href="#">宿舍报修</a>\
+                ><a class="stuCheckFee" href="#">查看缴费记录</a><a class="stuFeeCharge" href="#">充值</a><a class="stuDormReport" href="#">宿舍报修</a>\
               </td>\
             </tr>\
 '
@@ -172,6 +173,14 @@ function stuRender() {
             id = $(this).parents("tr").attr("data-id");
           });
         break;
+      case "stuFeeCharge":
+        $("a")
+          .eq(i)
+          .on("click", function () {
+            $("#stu-charge-fee-container").show();
+            id = $(this).parents("tr").attr("data-id");
+          });
+        break;
     }
   }
 
@@ -186,11 +195,11 @@ function stuRender() {
   }
 
   // for (let i = 0; i < $("a").length; i++) {
-  //   if ($("a").eq(i).html() == "删除") {
+  //   if ($("a").eq(i).html() == "充值") {
   //     $("a")
   //       .eq(i)
   //       .on("click", function () {
-  //         $("#deleteStuContainer").show();
+  //         $("#stu-charge-fee-container").show();
   //         id = $(this).parents("tr").attr("data-id");
   //       });
   //   }

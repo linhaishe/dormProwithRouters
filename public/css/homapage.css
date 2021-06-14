@@ -52,7 +52,8 @@
 #check-dorm-pro-container,
 #stuDormRepair,
 #reportDormProperty,
-#stuDormRepairPanel {
+#stuDormRepairPanel,
+#stu-charge-fee-container {
   width: 100%;
   height: 100%;
   /* border: 1px solid red; */

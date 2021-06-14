@@ -7,7 +7,7 @@ var jsonObj = JSON.parse(json);
 //   $("#nav-left ul").children().eq(3).hide();
 //   $("#nav-left ul").children().eq(4).hide();
 // }
-// console.log("jsonObj", jsonObj);
+// console.log("jsonObj", jsonObbulletin-homepagej);
 
 // console.log("jsonObj.name", jsonObj.name);
 // console.log("jsonObj.stuName", jsonObj.stuName);

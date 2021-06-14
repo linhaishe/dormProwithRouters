@@ -25,7 +25,8 @@
 }
 
 #charge-record-panel .close,
-.stuDormRepairPanel .close {
+.stuDormRepairPanel .close,
+#charge-fee-panel .close {
   margin: 0;
   padding: 0;
   background-color: transparent;
@@ -63,6 +64,10 @@
   /* display: block; */
 }
 
+#stu-charge-fee-container {
+  display: none;
+}
+
 .stu-add-panel .panel-title {
   position: absolute;
   left: 50%;
@@ -78,7 +83,8 @@
 .stu-add-panel,
 .delete-panel,
 .modity-panel,
-.stuDormRepairPanel {
+.stuDormRepairPanel,
+#charge-fee-panel {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -115,9 +121,17 @@
   height: 380px;
 }
 
+#charge-fee-panel {
+  margin-left: -206px;
+  margin-top: -90px;
+  width: 412px;
+  height: 180px;
+}
+
 .stu-add-panel .close,
 .delete-panel .close,
-.modity-panel .close {
+.modity-panel .close,
+#charge-fee-panel .close {
   margin: 0;
   padding: 0;
   background-color: transparent;
@@ -137,13 +151,14 @@
 }
 
 .stu-add-panel form,
-.modity-panel form {
+.modity-panel form,
+#charge-fee-panel form {
   width: 100%;
-
   margin-top: 50px;
 }
 
-.stu-add-panel label {
+.stu-add-panel label,
+#charge-fee-panel label {
   font-size: 12px;
   /* border: 1px solid red; */
   width: 21%;
@@ -158,7 +173,8 @@
 }
 
 .stu-add-panel form .col-sm-10,
-.modity-panel form .col-sm-10 {
+.modity-panel form .col-sm-10,
+#charge-fee-panel form .col-sm-10 {
   width: 79%;
 }
 

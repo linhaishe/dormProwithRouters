@@ -112,7 +112,7 @@ function dormRender() {
                 ><a href="#" class="dormUpdate">修改</a><a href="#">' +
         (v.dormType == 1 ? "发起催款" : "改为正常") +
         '</a>\
-                <a href="#" class="checkPro">查看财产</a><a href="#" class="addSinglePro">添加财产</a>\
+                <a href="#" class="addSinglePro">添加和查看财产</a>\
               </td>\
             </tr>\
 '
@@ -149,13 +149,6 @@ function dormRender() {
               $(this).parents("tr").children().eq(2).html()
             );
             $("#chargefee").val($(this).parents("tr").children().eq(3).html());
-          });
-        break;
-      case "checkPro":
-        $("a")
-          .eq(i)
-          .on("click", function () {
-            $("#check-dorm-pro-container").show();
           });
         break;
       case "addSinglePro":

@@ -427,10 +427,10 @@
         </div>
       </div>
     </div>
-    <!--添加宿舍财产-->
+    <!--查看和添加宿舍财产-->
     <div id="add-dorm-pro-single-container">
       <div class="addSingalProPanel">
-        <span id="addspan">添加宿舍财产</span>
+        <span id="addspan">查看和添加宿舍财产</span>
         <button class="close">X</button>
         <form>
           <div class="mb-3 row">
@@ -541,50 +541,6 @@
       </div>
     </div>
 
-    <!--查看宿舍财产-->
-    <div id="check-dorm-pro-container">
-      <div class="add-panel">
-        <span id="addspan">添加宿舍</span>
-        <button class="close">X</button>
-        <form>
-          <div class="mb-3 row">
-            <label for="dormId" class="col-sm-2 col-form-label"
-              ><span style="color: red">* </span>宿舍编号</label
-            >
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="dormId" />
-            </div>
-            <span class="warning" style="color: red">请输入正确内容</span>
-          </div>
-          <div class="mb-3 row">
-            <label for="dormName" class="col-sm-2 col-form-label"
-              ><span style="color: red">* </span>宿舍名称</label
-            >
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="dormName" />
-            </div>
-            <span class="warning" style="color: red">请输入正确内容</span>
-          </div>
-          <div class="mb-3 row">
-            <label for="bill" class="col-sm-2 col-form-label"
-              ><span style="color: red">* </span>水费余额</label
-            >
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="bill" />
-            </div>
-            <span class="warning" style="color: red">请输入正确内容</span>
-          </div>
-          <div class="col-auto">
-            <button type="button" class="btn btn-outline-secondary cancel">
-              取消
-            </button>
-            <button type="button" class="btn btn-primary add-dorm-confirm">
-              确定
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
     <!-- 学生管理主页 -->
     <!-- 管理页面主面板 -->
     <div id="student-admin-homepage">
@@ -614,7 +570,7 @@
             </tr>
           </thead>
           <tbody id="mainPageTbody">
-            <tr>
+            <!-- <tr>
               <th scope="row">1002</th>
               <td>1002</td>
               <td>2</td>
@@ -691,7 +647,7 @@
                 ><a class="stuUpdate" href="#">修改</a
                 ><a class="stuCheckFee" href="#">查看缴费记录</a>
               </td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
       </div>
@@ -985,48 +941,49 @@
                 disabled
               />
             </div>
-          <table class="table table-bordered">
-            <thead class="table-light">
-              <tr>
-                <th scope="col">编号</th>
-                <th scope="col">名称</th>
-                <th scope="col">状态</th>
-                <th scope="col">操作</th>
-              </tr>
-            </thead>
-            <tbody id="addSingleProTbody">
-              <tr>
-                <th scope="row">1</th>
-                <td>桌子</td>
-                <td>良好</td>
-                <td>
-                  <a class="stuDormReport" href="#">报修</a>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>椅子</td>
-                <td>损坏</td>
-                <td>
-                  <a class="stuDormReport" href="#">报修</a>
-                </td>
-              </tr>
+            <table class="table table-bordered">
+              <thead class="table-light">
+                <tr>
+                  <th scope="col">编号</th>
+                  <th scope="col">名称</th>
+                  <th scope="col">状态</th>
+                  <th scope="col">操作</th>
+                </tr>
+              </thead>
+              <tbody id="addSingleProTbody">
+                <tr>
+                  <th scope="row">1</th>
+                  <td>桌子</td>
+                  <td>良好</td>
+                  <td>
+                    <a class="stuDormReport" href="#">报修</a>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>椅子</td>
+                  <td>损坏</td>
+                  <td>
+                    <a class="stuDormReport" href="#">报修</a>
+                  </td>
+                </tr>
 
-              <tr>
-                <th scope="row">3</th>
-                <td>床</td>
-                <td>良好</td>
-                <td>
-                  <a class="stuDormReport" href="#">报修</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div id="page-switch">
-          <button class="before">&lt</button>
-          <!-- <a href="javascript:;">1</a> -->
-          <button class="next">&gt</button>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>床</td>
+                  <td>良好</td>
+                  <td>
+                    <a class="stuDormReport" href="#">报修</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="page-switch">
+            <button class="before">&lt</button>
+            <!-- <a href="javascript:;">1</a> -->
+            <button class="next">&gt</button>
+          </div>
         </div>
       </div>
     </div>
@@ -1047,6 +1004,24 @@
             确定
           </button>
         </div>
+      </div>
+    </div>
+    <!-- 学生充值页面 -->
+    <div id="stu-charge-fee-container">
+      <div id="charge-fee-panel">
+        <span>缴费充值</span>
+        <button class="close">X</button>
+        <form>
+          <div class="mb-3 row">
+            <label for="stuId" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>缴费金额</label
+            >
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="stuId" />
+            </div>
+            <span class="warning" style="color: red">请输入正确内容</span>
+          </div>
+        </form>
       </div>
     </div>
 
