@@ -43,6 +43,7 @@ $(".nav-link").each(function (i) {
       $("#dorm-homepage").hide();
       $("#student-admin-homepage").hide();
       $("#bulletin-homepage").hide();
+      $("#property-homepage").hide();
       $("#admin-homepage").hide();
       addColor(_this);
       //点击后顶部导航栏显示事件，颜色改变
@@ -59,6 +60,7 @@ $(".nav-link").each(function (i) {
       $("#homepage").hide();
       $("#student-admin-homepage").hide();
       $("#bulletin-homepage").hide();
+      $("#property-homepage").hide();
       $("#admin-homepage").hide();
       addColor(_this);
       $(".menu-list").eq(1).show();
@@ -74,6 +76,7 @@ $(".nav-link").each(function (i) {
       $("#dorm-homepage").hide();
       $("#homepage").hide();
       $("#bulletin-homepage").hide();
+      $("#property-homepage").hide();
       $("#admin-homepage").hide();
       addColor(_this);
       $(".menu-list").eq(2).show();
@@ -89,6 +92,7 @@ $(".nav-link").each(function (i) {
       $("#student-admin-homepage").hide();
       $("#dorm-homepage").hide();
       $("#homepage").hide();
+      $("#property-homepage").hide();
       $("#admin-homepage").hide();
       addColor(_this);
       $(".menu-list").eq(3).show();
@@ -104,6 +108,7 @@ $(".nav-link").each(function (i) {
       $("#bulletin-homepage").hide();
       $("#student-admin-homepage").hide();
       $("#dorm-homepage").hide();
+      $("#property-homepage").hide();
       $("#homepage").hide();
       addColor(_this);
       $(".menu-list").eq(4).show();
@@ -111,6 +116,22 @@ $(".nav-link").each(function (i) {
       $(".menu-list").children().css({ color: "black" });
       $(".menu-list").eq(4).addClass("active");
       $(".menu-list").eq(4).children().css({ color: "white" });
+      $("tbody tr").show();
+    }
+    if ($(this).attr("data-name") == "property") {
+      var _this = $(this);
+      $("#property-homepage").show();
+      $("#admin-homepage").hide();
+      $("#bulletin-homepage").hide();
+      $("#student-admin-homepage").hide();
+      $("#dorm-homepage").hide();
+      $("#homepage").hide();
+      addColor(_this);
+      $(".menu-list").eq(5).show();
+      $(".menu-list").removeClass("active");
+      $(".menu-list").children().css({ color: "black" });
+      $(".menu-list").eq(5).addClass("active");
+      $(".menu-list").eq(5).children().css({ color: "white" });
       $("tbody tr").show();
     }
   });
@@ -147,6 +168,7 @@ $(".menu-list").each(function (i) {
       $("#student-admin-homepage").hide();
       $("#bulletin-homepage").hide();
       $("#admin-homepage").hide();
+      $("#property-homepage").hide();
       //左侧导航栏更改相应颜色
       addColor($(".nav-link").eq(0));
     }
@@ -156,6 +178,7 @@ $(".menu-list").each(function (i) {
       $("#student-admin-homepage").hide();
       $("#bulletin-homepage").hide();
       $("#admin-homepage").hide();
+      $("#property-homepage").hide();
       addColor($(".nav-link").eq(1));
     }
 
@@ -164,6 +187,7 @@ $(".menu-list").each(function (i) {
       $("#dorm-homepage").hide();
       $("#student-admin-homepage").show();
       $("#bulletin-homepage").hide();
+      $("#property-homepage").hide();
       $("#admin-homepage").hide();
       addColor($(".nav-link").eq(2));
     }
@@ -173,6 +197,7 @@ $(".menu-list").each(function (i) {
       $("#dorm-homepage").hide();
       $("#student-admin-homepage").hide();
       $("#bulletin-homepage").show();
+      $("#property-homepage").hide();
       $("#admin-homepage").hide();
       addColor($(".nav-link").eq(3));
     }
@@ -182,8 +207,18 @@ $(".menu-list").each(function (i) {
       $("#dorm-homepage").hide();
       $("#student-admin-homepage").hide();
       $("#bulletin-homepage").hide();
+      $("#property-homepage").hide();
       $("#admin-homepage").show();
       addColor($(".nav-link").eq(4));
+    }
+    if (text == "财产管理") {
+      $("#homepage").hide();
+      $("#dorm-homepage").hide();
+      $("#student-admin-homepage").hide();
+      $("#property-homepage").show();
+      $("#bulletin-homepage").hide();
+      $("#admin-homepage").hide();
+      addColor($(".nav-link").eq(5));
     }
   });
 });
@@ -197,6 +232,7 @@ $(".menu-list a").on("click", function () {
   $("#student-admin-homepage").hide();
   $("#bulletin-homepage").hide();
   $("#admin-homepage").hide();
+  $("#property-homepage").hide();
   //左侧导航栏更改相应颜色
   addColor($(".nav-link").eq(0));
   //顶部导航栏修改颜色
@@ -226,7 +262,8 @@ $(".search").on("click", function () {
     $(".dormSearch").val() ||
     $(".stuSearch").val() ||
     $(".bulletinSearch").val() ||
-    $(".adminSearch").val();
+    $(".adminSearch").val() ||
+    $(".propertySearch").val();
   if ($.trim(searchText) != "") {
     $("tbody tr")
       .hide()
@@ -236,6 +273,7 @@ $(".search").on("click", function () {
     $(".stuSearch").val("");
     $(".bulletinSearch").val("");
     $(".adminSearch").val("");
+    $(".propertySearch").val();
   }
 });
 
@@ -245,6 +283,7 @@ $(".reset").on("click", function () {
   $(".stuSearch").val("");
   $(".bulletinSearch").val("");
   $(".adminSearch").val("");
+  $(".propertySearch").val();
   render();
   createPage();
 });

@@ -62,7 +62,7 @@
   /* display: block; */
 }
 
-.add-panel .panel-title {
+.stu-add-panel .panel-title {
   position: absolute;
   left: 50%;
   margin-left: -20px;
@@ -74,7 +74,7 @@
   margin-left: -30px;
 }
 
-.add-panel,
+.stu-add-panel,
 .delete-panel,
 .modity-panel {
   position: absolute;
@@ -85,11 +85,10 @@
   /* justify-content: center; */
 }
 
-.add-panel {
+.stu-add-panel {
   margin-left: -205px;
   margin-top: -205px;
   width: 410px;
-  height: 440px;
   display: flex;
 }
 
@@ -107,7 +106,7 @@
   height: 380px;
 }
 
-.add-panel .close,
+.stu-add-panel .close,
 .delete-panel .close,
 .modity-panel .close {
   margin: 0;
@@ -128,14 +127,14 @@
   /* margin-left: 29px; */
 }
 
-.add-panel form,
+.stu-add-panel form,
 .modity-panel form {
   width: 100%;
 
   margin-top: 50px;
 }
 
-.add-panel label {
+.stu-add-panel label {
   font-size: 12px;
   /* border: 1px solid red; */
   width: 21%;
@@ -149,12 +148,12 @@
   /* padding: 10px; */
 }
 
-.add-panel form .col-sm-10,
+.stu-add-panel form .col-sm-10,
 .modity-panel form .col-sm-10 {
   width: 79%;
 }
 
-.add-panel form .form-control {
+.stu-add-panel form .form-control {
   font-size: 12px;
 }
 
@@ -184,12 +183,12 @@
   width: 79%;
 }
 
-.add-panel .dropdown,
+.stu-add-panel .dropdown,
 .modity-panel .dropdown {
   width: 79%;
 }
 
-.add-panel .dropdown .btn,
+.stu-add-panel .dropdown .btn,
 .modity-panel .dropdown .btn {
   margin-left: 0;
 }

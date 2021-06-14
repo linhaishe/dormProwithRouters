@@ -7,7 +7,8 @@
 #dorm-homepage,
 #student-admin-homepage,
 #admin-homepage,
-#bulletin-homepage {
+#bulletin-homepage,
+#property-homepage {
   position: absolute;
   margin-left: 200px;
   padding: 20px;
@@ -23,7 +24,8 @@
 #dorm-homepage,
 #student-admin-homepage,
 #admin-homepage,
-#bulletin-homepage {
+#bulletin-homepage,
+#property-homepage {
   display: none;
   margin-top: 60px;
 }
@@ -42,7 +44,10 @@
 #modifyStuContainer,
 #modifyNewscontainer,
 #modifyAdminContainer,
-#getFee-container {
+#getFee-container,
+#addPropertyContainer,
+#deletePropertyContainer,
+#modifyProContainer {
   width: 100%;
   height: 100%;
   /* border: 1px solid red; */
@@ -211,4 +216,10 @@
 
 #table-container a {
   margin-left: 5px;
+}
+
+/* 下拉框样式 */
+.add-panel .dropdown,
+.modify-panel .dropdown {
+  width: 67%;
 }

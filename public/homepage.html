@@ -37,6 +37,7 @@
 
     <link rel="stylesheet" href="./css/bulletin.css" />
     <link rel="stylesheet" href="./css/admin.css" />
+    <link rel="stylesheet" href="./css/property.css" />
   </head>
   <body>
     <nav class="logomenu navbar navbar-dark bg-primary">
@@ -78,6 +79,7 @@
       <i class="bi bi-check2-circle"></i>
       <span>登入成功</span>
     </div>
+    <!-- 左侧导航栏 -->
     <div id="nav-left">
       <ul>
         <li>
@@ -112,10 +114,16 @@
             >管理员管理</a
           >
         </li>
+        <li>
+          <i class="bi bi-currency-yen"></i>
+          <a class="nav-link" href="javascript:;" data-name="property"
+            >财产管理</a
+          >
+        </li>
       </ul>
     </div>
+    <!-- 横向导航栏显示 -->
     <div id="top-menu">
-      <!-- 导航栏显示 -->
       <div class="menu-row">
         <div class="menu-list active">
           公告主页<a href="javascript:;" style="color: white">x</a>
@@ -124,6 +132,7 @@
         <div class="menu-list">学生管理<a href="javascript:;">x</a></div>
         <div class="menu-list">公告管理<a href="javascript:;">x</a></div>
         <div class="menu-list">管理员管理<a href="javascript:;">x</a></div>
+        <div class="menu-list">财产管理<a href="javascript:;">x</a></div>
       </div>
       <div id="separate-line"></div>
     </div>
@@ -186,6 +195,9 @@
         <button type="button" class="btn btn-primary reset">重置</button
         ><button type="button" class="btn btn-outline-success add-dorm">
           添加宿舍
+        </button>
+        <button type="button" class="btn btn-outline-success add-dorm-pro">
+          添加宿舍财产
         </button>
       </div>
       <div id="table-container">
@@ -567,7 +579,7 @@
     </div>
     <!-- 添加学生操作页面 -->
     <div id="addStuContainer">
-      <div class="add-panel">
+      <div class="stu-add-panel">
         <span class="panel-title">添加学生</span>
         <button class="close">X</button>
         <form>
@@ -1259,6 +1271,350 @@
         </form>
       </div>
     </div>
+    <!--财产管理主页-->
+    <div id="property-homepage">
+      <div id="search-container">
+        <input placeholder="请输入公告标题" class="propertySearch" /><button
+          type="button"
+          class="btn btn-primary search"
+        >
+          搜索
+        </button>
+        <button type="button" class="btn btn-primary reset">重置</button
+        ><button
+          type="button"
+          id="addBtn"
+          class="btn btn-outline-success add-property"
+        >
+          添加公共财产
+        </button>
+      </div>
+      <div id="table-container">
+        <table class="table table-bordered">
+          <thead class="table-light">
+            <tr>
+              <th scope="col">财产编号</th>
+              <th scope="col">财产名称</th>
+              <th scope="col">财产状态</th>
+              <th scope="col">所属宿舍</th>
+              <th scope="col">使用状态</th>
+              <th scope="col">操作</th>
+            </tr>
+          </thead>
+          <tbody id="propertyTbody">
+            <tr>
+              <th scope="row">1</th>
+              <td>桌子</td>
+              <td>良好</td>
+              <td>1004</td>
+              <td>已使用</td>
+              <td>
+                <a class="delProperty" href="#">删除</a
+                ><a class="PropertyUpdate" href="#">修改</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>椅子</td>
+              <td>损坏</td>
+              <td>1004</td>
+              <td>已使用</td>
+              <td>
+                <a class="delProperty" href="#">删除</a
+                ><a class="PropertyUpdate" href="#">修改</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>空调</td>
+              <td>良好</td>
+              <td>0</td>
+              <td>未使用</td>
+              <td>
+                <a class="delProperty" href="#">删除</a
+                ><a class="PropertyUpdate" href="#">修改</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">4001</th>
+              <td>4001</td>
+              <td>5</td>
+              <td>0</td>
+              <td>正常</td>
+              <td>
+                <a class="delProperty" href="#">删除</a
+                ><a class="PropertyUpdate" href="#">修改</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">5001</th>
+              <td>5001</td>
+              <td>5</td>
+              <td>0</td>
+              <td>正常</td>
+              <td>
+                <a class="delProperty" href="#">删除</a
+                ><a class="PropertyUpdate" href="#">修改</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">6001</th>
+              <td>6001</td>
+              <td>5</td>
+              <td>0</td>
+              <td>正常</td>
+              <td>
+                <a class="delProperty" href="#">删除</a
+                ><a class="PropertyUpdate" href="#">修改</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="page-switch">
+        <button class="before">&lt</button>
+        <a href="javascript:;">1</a>
+        <button class="next">&gt</button>
+      </div>
+    </div>
+    <!--添加财产-->
+    <div id="addPropertyContainer">
+      <div class="add-panel">
+        <span class="panel-title">添加财产</span>
+        <button class="close">X</button>
+        <form>
+          <div class="mb-3 row">
+            <label for="add-pro-name" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>财产名称</label
+            >
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="add-pro-name" />
+            </div>
+            <span class="warning" style="color: red">请输入正确内容</span>
+          </div>
+
+          <div class="mb-3 row">
+            <label for="add-pro-type" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>财产状态</label
+            >
+            <div class="dropdown">
+              <button
+                class="btn btn-outline-secondary dropdown-toggle"
+                type="button"
+                id="add-pro-type"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                请选择财产状态
+              </button>
+              <ul
+                class="dropdown-menu proStateBtn main-dropdown-menu"
+                aria-labelledby="dropdownMenu proStateBtn"
+              >
+                <li><a class="dropdown-item" href="#">良好</a></li>
+                <li><a class="dropdown-item" href="#">损坏</a></li>
+                <li><a class="dropdown-item" href="#">正在修复</a></li>
+              </ul>
+            </div>
+            <span class="warning" style="color: red">请选择正确选项</span>
+          </div>
+
+          <div class="mb-3 row">
+            <label for="add-pro-dorm" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>所属宿舍</label
+            >
+            <div class="dropdown">
+              <button
+                class="btn btn-outline-secondary dropdown-toggle"
+                type="button"
+                id="add-pro-dorm"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                请选择所属宿舍
+              </button>
+              <ul
+                class="dropdown-menu proDormBtn main-dropdown-menu"
+                aria-labelledby="dropdownMenu proDormBtn"
+              >
+                <li><a class="dropdown-item" href="#">1003</a></li>
+                <li><a class="dropdown-item" href="#">1004</a></li>
+              </ul>
+            </div>
+            <span class="warning" style="color: red">请选择正确选项</span>
+          </div>
+
+          <div class="mb-3 row">
+            <label for="add-pro-use" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>使用状态</label
+            >
+            <div class="dropdown">
+              <button
+                class="btn btn-outline-secondary dropdown-toggle"
+                type="button"
+                id="add-pro-use"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                请选择使用状态
+              </button>
+              <ul
+                class="dropdown-menu addProUseBtn main-dropdown-menu"
+                aria-labelledby="dropdownMenu addProUseBtn"
+              >
+                <li><a class="dropdown-item" href="#">已使用</a></li>
+                <li><a class="dropdown-item" href="#">未使用</a></li>
+              </ul>
+            </div>
+            <span class="warning" style="color: red">请选择正确选项</span>
+          </div>
+
+          <div class="col-auto">
+            <button type="button" class="btn btn-outline-secondary cancel">
+              取消
+            </button>
+            <button type="submit" class="btn btn-primary add-pro-confirm">
+              确定
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--修改财产-->
+    <div id="modifyProContainer">
+      <div class="pro-modify-panel">
+        <span class="panel-title">修改财产信息</span>
+        <button class="close">X</button>
+        <form>
+          <div class="mb-3 row">
+            <label for="modify-pro-id" class="col-sm-2 col-form-label"
+              ><span>&nbsp&nbsp</span>财产编号</label
+            >
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="modify-pro-id"
+                disabled
+              />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="modify-pro-name" class="col-sm-2 col-form-label"
+              ><span>&nbsp&nbsp</span>财产名称</label
+            >
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="modify-pro-name" />
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label for="modify-pro-type" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>财产状态</label
+            >
+            <div class="dropdown">
+              <button
+                class="btn btn-outline-secondary dropdown-toggle"
+                type="button"
+                id="modify-pro-type"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                请选择财产状态
+              </button>
+              <ul
+                class="dropdown-menu modifyproStateBtn main-dropdown-menu"
+                aria-labelledby="dropdownMenu modifyproStateBtn"
+              >
+                <li><a class="dropdown-item" href="#">良好</a></li>
+                <li><a class="dropdown-item" href="#">损坏</a></li>
+                <li><a class="dropdown-item" href="#">正在修复</a></li>
+              </ul>
+            </div>
+            <span class="warning" style="color: red">请选择正确选项</span>
+          </div>
+
+          <div class="mb-3 row">
+            <label for="modify-pro-dorm" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>所属宿舍</label
+            >
+            <div class="dropdown">
+              <button
+                class="btn btn-outline-secondary dropdown-toggle"
+                type="button"
+                id="modify-pro-dorm"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                请选择所属宿舍
+              </button>
+              <ul
+                class="dropdown-menu updateproDormBtn main-dropdown-menu"
+                aria-labelledby="dropdownMenu updateproDormBtn"
+              >
+                <li><a class="dropdown-item" href="#">1003</a></li>
+                <li><a class="dropdown-item" href="#">1004</a></li>
+              </ul>
+            </div>
+            <span class="warning" style="color: red">请选择正确选项</span>
+          </div>
+
+          <div class="mb-3 row">
+            <label for="modify-pro-use" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>使用状态</label
+            >
+            <div class="dropdown">
+              <button
+                class="btn btn-outline-secondary dropdown-toggle"
+                type="button"
+                id="modify-pro-use"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                请选择使用状态
+              </button>
+              <ul
+                class="dropdown-menu modifyProUseBtn main-dropdown-menu"
+                aria-labelledby="dropdownMenu modifyProUseBtn"
+              >
+                <li><a class="dropdown-item" href="#">已使用</a></li>
+                <li><a class="dropdown-item" href="#">未使用</a></li>
+              </ul>
+            </div>
+            <span class="warning" style="color: red">请选择正确选项</span>
+          </div>
+
+          <div class="col-auto">
+            <button type="button" class="btn btn-outline-secondary cancel">
+              取消
+            </button>
+            <button type="submit" class="btn btn-primary modify-pro-confirm">
+              确定
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!--删除财产-->
+    <div id="deletePropertyContainer">
+      <div class="delete-panel">
+        <span class="panel-title">提示</span>
+        <button class="close">X</button>
+        <p>
+          <i class="bi bi-exclamation-circle-fill" style="color: orange"></i
+          >确认是否删除该财产?
+        </p>
+        <div class="col-auto">
+          <button type="button" class="btn btn-outline-secondary cancel">
+            取消
+          </button>
+          <button type="submit" class="btn btn-primary delete-pro-confirm">
+            确定
+          </button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
 <script
@@ -1272,3 +1628,4 @@
 <script src="./js/studentForAdmin.js"></script>
 <script src="./js/bulletin.js"></script>
 <script src="./js/admin.js"></script>
+<script src="./js/property.js"></script>

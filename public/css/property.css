@@ -1,48 +1,46 @@
 @import url(common.css);
 @import url(nav.css);
-
-#addAdminContainer {
+#addPropertyContainer {
   display: none;
   /* display: block; */
 }
 
-#deleteAdminContainer {
+#deletePropertyContainer {
+  text-align: center;
   display: none;
-  /* display: block; */
-}
-#modifyAdminContainer {
-  display: none;
-  /* display: block; */
 }
 
-.add-panel .panel-title {
+#deletePropertyContainer p {
+  margin-top: 5px;
+}
+
+#modifyProContainer {
+  display: none;
+}
+
+/* 添加宿舍表格标题 */
+.add-panel #addspan {
   position: absolute;
   left: 50%;
   margin-left: -20px;
 }
 
-.modify-panel .panel-title {
-  position: absolute;
-  left: 50%;
-  margin-left: -30px;
-}
-
 .add-panel,
 .delete-panel,
-.modify-panel {
+.pro-modify-panel {
   position: absolute;
   left: 50%;
   top: 50%;
   background-color: white;
   padding: 20px;
-  /* justify-content: center; */
+  justify-content: center;
 }
 
 .add-panel {
   margin-left: -205px;
-  margin-top: -200px;
+  margin-top: -159px;
   width: 410px;
-  height: 400px;
+  height: 318px;
   display: flex;
 }
 
@@ -50,10 +48,10 @@
   margin-left: -190px;
   margin-top: -62px;
   width: 380px;
-  height: 124px;
+  height: 140px;
 }
 
-.modify-panel {
+.pro-modify-panel {
   margin-left: -206px;
   margin-top: -190px;
   width: 412px;
@@ -62,7 +60,7 @@
 
 .add-panel .close,
 .delete-panel .close,
-.modify-panel .close {
+.pro-modify-panel .close {
   margin: 0;
   padding: 0;
   background-color: transparent;
@@ -82,70 +80,73 @@
 }
 
 .add-panel form,
-.modify-panel form {
-  width: 100%;
+.pro-modify-panel form {
   margin-top: 50px;
 }
 
 .add-panel label {
   font-size: 12px;
   /* border: 1px solid red; */
-  /* width: 15%; */
+  width: 32%;
   /* padding: 10px; */
 }
 
-.modify-panel label {
+.pro-modify-panel label {
   font-size: 12px;
   /* border: 1px solid red; */
-  width: 15%;
+  width: 25%;
   /* padding: 10px; */
 }
 
 .add-panel form .col-sm-10,
-.modify-panel form .col-sm-10 {
-  width: 79%;
+.pro-modify-panel form .col-sm-10 {
+  width: 67%;
 }
 
 .add-panel form .form-control {
   font-size: 12px;
 }
 
-#addAdminContainer .col-auto,
-#modifyAdminContainer .col-auto {
+#addPropertyContainer .col-auto,
+#modifyProContainer .col-auto {
   margin-top: 30px;
   display: flex;
   justify-content: center;
 }
 
-#deleteAdminContainer .col-auto,
-#modifyAdminContainer .col-auto {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
+#add-pro-type,
+#add-pro-dorm,
+#add-pro-use {
+  width: 160px;
 }
 
-#deleteAdminContainer p {
-  text-align: center;
+.add-panel .panel-title {
+  position: absolute;
+  left: 50%;
+  margin-left: -20px;
 }
 
-#deleteAdminContainer i {
-  margin-right: 10px;
+.pro-modify-panel .panel-title {
+  position: absolute;
+  left: 50%;
+  margin-left: -30px;
 }
 
-.form-floating {
-  width: 79%;
+.pro-modify-panel .dropdown {
+  width: 75%;
 }
 
-.add-panel .dropdown,
-.modify-panel .dropdown {
-  width: 67%;
-}
-
-.add-panel .dropdown .btn,
-.modify-panel .dropdown .btn {
+.pro-modify-panel #modify-pro-type,
+.pro-modify-panel #modify-pro-dorm,
+.pro-modify-panel #modify-pro-use {
   margin-left: 0;
+  width: 88%;
 }
 
-/* .bi-person {
-  color: #0f6efd;
-} */
+.pro-modify-panel #modify-pro-id {
+  width: 100%;
+}
+
+#modifyProContainer .dropdown-menu {
+  min-width: 15rem;
+}
