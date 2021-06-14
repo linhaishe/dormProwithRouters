@@ -196,9 +196,6 @@
         ><button type="button" class="btn btn-outline-success add-dorm">
           添加宿舍
         </button>
-        <button type="button" class="btn btn-outline-success add-dorm-pro">
-          添加宿舍财产
-        </button>
       </div>
       <div id="table-container">
         <table class="table table-bordered">
@@ -233,6 +230,7 @@
               <td>
                 <a href="#" class="delDorm">删除</a
                 ><a href="#" class="dormUpdate">修改</a><a href="#">改为正常</a>
+                <a href="#">查看财产</a>
               </td>
             </tr>
             <tr>
@@ -429,7 +427,164 @@
         </div>
       </div>
     </div>
+    <!--添加宿舍财产-->
+    <div id="add-dorm-pro-single-container">
+      <div class="addSingalProPanel">
+        <span id="addspan">添加宿舍财产</span>
+        <button class="close">X</button>
+        <form>
+          <div class="mb-3 row">
+            <label for="dormId" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>宿舍编号</label
+            >
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control proDrom"
+                id="dormId"
+                disabled
+              />
+            </div>
+            <span class="warning" style="color: red">请输入正确内容</span>
+          </div>
+          <div class="mb-3 row">
+            <label for="add-pro-dorm" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>财产添加</label
+            >
+            <div class="dropdown">
+              <button
+                class="btn btn-outline-secondary dropdown-toggle"
+                type="button"
+                id="add-pro-dorm"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                请选择所需财产
+              </button>
+              <ul
+                class="dropdown-menu proDormBtn main-dropdown-menu"
+                aria-labelledby="dropdownMenu proDormBtn"
+              >
+                <li><a class="dropdown-item" href="#">1003</a></li>
+                <li><a class="dropdown-item" href="#">1004</a></li>
+              </ul>
+            </div>
+            <span class="warning" style="color: red">请选择正确选项</span>
+          </div>
+          <button
+            type="button"
+            class="btn btn-outline-success add-dorm-pro-single-confirm"
+          >
+            确认添加
+          </button>
+        </form>
+        <div id="table-container">
+          <table class="table table-bordered">
+            <thead class="table-light">
+              <tr>
+                <th scope="col">编号</th>
+                <th scope="col">名称</th>
+                <th scope="col">状态</th>
+                <th scope="col">操作</th>
+              </tr>
+            </thead>
+            <tbody id="addSingleProTbody">
+              <tr>
+                <th scope="row">1</th>
+                <td>桌子</td>
+                <td>良好</td>
 
+                <td>
+                  <a class="delDormPro" href="#">删除</a
+                  ><a class="updateDormPro" href="#">修改</a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>椅子</td>
+                <td>损坏</td>
+
+                <td>
+                  <a class="delDormPro" href="#">删除</a
+                  ><a class="updateDormPro" href="#">修改</a>
+                </td>
+              </tr>
+
+              <tr>
+                <th scope="row">3</th>
+                <td>床</td>
+                <td>良好</td>
+
+                <td>
+                  <a class="delDormPro" href="#">删除</a
+                  ><a class="updateDormPro" href="#">修改</a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>空调</td>
+                <td>良好</td>
+
+                <td>
+                  <a class="delDormPro" href="#">删除</a
+                  ><a class="updateDormPro" href="#">修改</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="page-switch">
+          <button class="before">&lt</button>
+          <!-- <a href="javascript:;">1</a> -->
+          <button class="next">&gt</button>
+        </div>
+      </div>
+    </div>
+
+    <!--查看宿舍财产-->
+    <div id="check-dorm-pro-container">
+      <div class="add-panel">
+        <span id="addspan">添加宿舍</span>
+        <button class="close">X</button>
+        <form>
+          <div class="mb-3 row">
+            <label for="dormId" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>宿舍编号</label
+            >
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="dormId" />
+            </div>
+            <span class="warning" style="color: red">请输入正确内容</span>
+          </div>
+          <div class="mb-3 row">
+            <label for="dormName" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>宿舍名称</label
+            >
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="dormName" />
+            </div>
+            <span class="warning" style="color: red">请输入正确内容</span>
+          </div>
+          <div class="mb-3 row">
+            <label for="bill" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>水费余额</label
+            >
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="bill" />
+            </div>
+            <span class="warning" style="color: red">请输入正确内容</span>
+          </div>
+          <div class="col-auto">
+            <button type="button" class="btn btn-outline-secondary cancel">
+              取消
+            </button>
+            <button type="button" class="btn btn-primary add-dorm-confirm">
+              确定
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
     <!-- 学生管理主页 -->
     <!-- 管理页面主面板 -->
     <div id="student-admin-homepage">
@@ -764,6 +919,130 @@
             </button>
           </div>
         </form>
+      </div>
+    </div>
+    <!--学生查看宿舍财产-->
+    <div id="stuDormRepair">
+      <div class="stuDormRepairPanel">
+        <span id="addspan">宿舍财产</span>
+        <button class="close">X</button>
+        <!-- <form>
+          <div class="mb-3 row">
+            <label for="dormId" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>宿舍编号</label
+            >
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control proDrom"
+                id="dormId"
+                disabled
+              />
+            </div>
+            <span class="warning" style="color: red">请输入正确内容</span>
+          </div>
+          <div class="mb-3 row">
+            <label for="add-pro-dorm" class="col-sm-2 col-form-label"
+              ><span style="color: red">* </span>财产添加</label
+            >
+            <div class="dropdown">
+              <button
+                class="btn btn-outline-secondary dropdown-toggle"
+                type="button"
+                id="add-pro-dorm"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                请选择所需财产
+              </button>
+              <ul
+                class="dropdown-menu proDormBtn main-dropdown-menu"
+                aria-labelledby="dropdownMenu proDormBtn"
+              >
+                <li><a class="dropdown-item" href="#">1003</a></li>
+                <li><a class="dropdown-item" href="#">1004</a></li>
+              </ul>
+            </div>
+            <span class="warning" style="color: red">请选择正确选项</span>
+          </div>
+          <button
+            type="button"
+            class="btn btn-outline-success add-dorm-pro-single-confirm"
+          >
+            确认添加
+          </button>
+        </form> -->
+        <div id="table-container">
+          <table class="table table-bordered">
+            <thead class="table-light">
+              <tr>
+                <th scope="col">编号</th>
+                <th scope="col">名称</th>
+                <th scope="col">状态</th>
+                <th scope="col">操作</th>
+              </tr>
+            </thead>
+            <tbody id="addSingleProTbody">
+              <tr>
+                <th scope="row">1</th>
+                <td>桌子</td>
+                <td>良好</td>
+                <td>
+                  <a class="stuDormReport" href="#">报修</a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>椅子</td>
+                <td>损坏</td>
+                <td>
+                  <a class="stuDormReport" href="#">报修</a>
+                </td>
+              </tr>
+
+              <tr>
+                <th scope="row">3</th>
+                <td>床</td>
+                <td>良好</td>
+                <td>
+                  <a class="stuDormReport" href="#">报修</a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>空调</td>
+                <td>良好</td>
+                <td>
+                  <a class="stuDormReport" href="#">报修</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="page-switch">
+          <button class="before">&lt</button>
+          <!-- <a href="javascript:;">1</a> -->
+          <button class="next">&gt</button>
+        </div>
+      </div>
+    </div>
+    <!-- 学生报修宿舍财产-->
+    <div id="reportDormProperty">
+      <div class="repair-panel">
+        <span class="panel-title">提示</span>
+        <button class="close">X</button>
+        <p>
+          <i class="bi bi-exclamation-circle-fill" style="color: orange"></i
+          >确认是否保修该产品?
+        </p>
+        <div class="col-auto">
+          <button type="button" class="btn btn-outline-secondary cancel">
+            取消
+          </button>
+          <button type="submit" class="btn btn-primary stu-repair-confirm">
+            确定
+          </button>
+        </div>
       </div>
     </div>
 
@@ -1377,7 +1656,7 @@
         <button class="next">&gt</button>
       </div>
     </div>
-    <!--添加财产-->
+    <!--添加公共财产-->
     <div id="addPropertyContainer">
       <div class="add-panel">
         <span class="panel-title">添加财产</span>

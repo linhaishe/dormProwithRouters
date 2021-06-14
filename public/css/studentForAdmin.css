@@ -24,7 +24,8 @@
   /* border: 1px solid red; */
 }
 
-#charge-record-panel .close {
+#charge-record-panel .close,
+.stuDormRepairPanel .close {
   margin: 0;
   padding: 0;
   background-color: transparent;
@@ -76,7 +77,8 @@
 
 .stu-add-panel,
 .delete-panel,
-.modity-panel {
+.modity-panel,
+.stuDormRepairPanel {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -100,6 +102,13 @@
 }
 
 .modity-panel {
+  margin-left: -206px;
+  margin-top: -190px;
+  width: 412px;
+  height: 380px;
+}
+
+.stuDormRepairPanel {
   margin-left: -206px;
   margin-top: -190px;
   width: 412px;
@@ -196,4 +205,71 @@
 .main-dropdown-menu {
   max-height: 300px;
   overflow-y: auto;
+}
+
+#stuDormRepair {
+  display: none;
+}
+
+#stuDormRepair #addspan {
+  position: absolute;
+  left: 50%;
+  margin-left: -20px;
+}
+
+/* #reportDormProperty {
+  margin-left: -457px;
+  margin-top: -209px;
+  width: 914px;
+  height: 418px;
+} */
+
+#stuDormRepair #table-container {
+  margin-top: 50px;
+}
+
+#reportDormProperty {
+  display: none;
+}
+.repair-panel {
+  margin-left: -190px;
+  margin-top: -62px;
+  width: 380px;
+  height: 124px;
+}
+
+.repair-panel {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-color: white;
+  padding: 20px;
+  justify-content: center;
+}
+
+.repair-panel .close {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: 0px solid transparent;
+  outline: none;
+  cursor: pointer;
+  width: 30px;
+  position: absolute;
+  right: 10px;
+  color: lightgray;
+}
+
+#reportDormProperty .col-auto {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+#reportDormProperty p {
+  text-align: center;
+}
+
+#reportDormProperty i {
+  margin-right: 10px;
 }

@@ -30,11 +30,19 @@ $(".add-dorm").on("click", function () {
   $(".warning").hide();
 });
 
+//添加宿舍财产点击事件
+$(".add-dorm-pro").on("click", function () {
+  $("#add-dorm-pro-single-container").show();
+  $(".warning").hide();
+});
+
 $(".close").on("click", function () {
   $("#add-container").hide();
   $("#delete-container").hide();
   $("#modify-container").hide();
   $("#getFee-container").hide();
+  $("#add-dorm-pro-single-container").hide();
+  $("#check-dorm-pro-container").hide();
 });
 
 for (let i = 0; i < $(".cancel").length; i++) {
@@ -45,6 +53,8 @@ for (let i = 0; i < $(".cancel").length; i++) {
       $("#delete-container").hide();
       $("#modify-container").hide();
       $("#getFee-container").hide();
+      $("#add-dorm-pro-single-container").hide();
+      $("#check-dorm-pro-container").hide();
     });
 }
 
@@ -98,13 +108,14 @@ function dormRender() {
         (v.dormType == 1 ? "正常" : "催缴中") +
         '</td>\
               <td>\
-                <a class="delDorm" href="#">删除</a><a href="#" class="dormUpdate">修改</a\
-                ><a href="#">' +
+                <a href="#" class="delDorm">删除</a\
+                ><a href="#" class="dormUpdate">修改</a><a href="#">' +
         (v.dormType == 1 ? "发起催款" : "改为正常") +
-        "</a>\
+        '</a>\
+                <a href="#" class="checkPro">查看财产</a><a href="#" class="addSinglePro">添加财产</a>\
               </td>\
             </tr>\
-"
+'
     );
   });
 
@@ -138,6 +149,20 @@ function dormRender() {
               $(this).parents("tr").children().eq(2).html()
             );
             $("#chargefee").val($(this).parents("tr").children().eq(3).html());
+          });
+        break;
+      case "checkPro":
+        $("a")
+          .eq(i)
+          .on("click", function () {
+            $("#check-dorm-pro-container").show();
+          });
+        break;
+      case "addSinglePro":
+        $("a")
+          .eq(i)
+          .on("click", function () {
+            $("#add-dorm-pro-single-container").show();
           });
         break;
     }
@@ -219,7 +244,6 @@ $(".add-dorm-confirm").on("click", function () {
     },
     type: "post",
     success: function (res) {
-
       //弹框隐藏
       $("#add-container").hide();
       getDorm();

@@ -48,6 +48,8 @@ $(".close").on("click", function () {
   $("#deleteStuContainer").hide();
   $("#modifyStuContainer").hide();
   $("#charge-record-container").hide();
+  $("#reportDormProperty").hide();
+  $("#stuDormRepair").hide();
 });
 
 for (let i = 0; i < $(".cancel").length; i++) {
@@ -58,6 +60,8 @@ for (let i = 0; i < $(".cancel").length; i++) {
       $("#deleteStuContainer").hide();
       $("#modifyStuContainer").hide();
       $("#charge-record-container").hide();
+      $("#stuDormRepair").hide();
+      $("#reportDormProperty").hide();
     });
 }
 
@@ -113,7 +117,7 @@ function stuRender() {
         '</td>\
               <td>\
                 <a class="delStu" href="#">删除</a><a class="stuUpdate" href="#">修改</a\
-                ><a class="stuCheckFee" href="#">查看缴费记录</a>\
+                ><a class="stuCheckFee" href="#">查看缴费记录</a><a class="stuDormReport" href="#">宿舍报修</a>\
               </td>\
             </tr>\
 '
@@ -160,18 +164,26 @@ function stuRender() {
             id = $(this).parents("tr").attr("data-id");
           });
         break;
+      case "stuDormReport":
+        $("a")
+          .eq(i)
+          .on("click", function () {
+            $("#stuDormRepair").show();
+            id = $(this).parents("tr").attr("data-id");
+          });
+        break;
     }
   }
 
-  // for (let i = 0; i < $("a").length; i++) {
-  //   if ($("a").eq(i).html() == "查看缴费记录") {
-  //     $("a")
-  //       .eq(i)
-  //       .on("click", function () {
-  //         $("#charge-record-container").show();
-  //       });
-  //   }
-  // }
+  for (let i = 0; i < $("a").length; i++) {
+    if ($("a").eq(i).html() == "报修") {
+      $("a")
+        .eq(i)
+        .on("click", function () {
+          $("#reportDormProperty").show();
+        });
+    }
+  }
 
   // for (let i = 0; i < $("a").length; i++) {
   //   if ($("a").eq(i).html() == "删除") {

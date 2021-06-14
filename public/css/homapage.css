@@ -47,7 +47,12 @@
 #getFee-container,
 #addPropertyContainer,
 #deletePropertyContainer,
-#modifyProContainer {
+#modifyProContainer,
+#add-dorm-pro-single-container,
+#check-dorm-pro-container,
+#stuDormRepair,
+#reportDormProperty,
+#stuDormRepairPanel {
   width: 100%;
   height: 100%;
   /* border: 1px solid red; */
@@ -177,6 +182,10 @@
   width: 30px;
   color: lightgray;
   margin-top: 50px;
+}
+
+.addSingalProPanel #page-switch button {
+  margin-top: 0;
 }
 
 /* 地底部页面链接 */

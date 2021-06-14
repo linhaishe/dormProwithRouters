@@ -72,8 +72,17 @@
   /* display: block; */
 }
 
+#add-dorm-pro-single-container {
+  display: none;
+}
+
+#check-dorm-pro-container {
+  display: none;
+}
+
 /* 添加宿舍表格标题 */
-.add-panel #addspan {
+.add-panel #addspan,
+.addSingalProPanel #addspan {
   position: absolute;
   left: 50%;
   margin-left: -20px;
@@ -82,7 +91,8 @@
 .add-panel,
 .delete-panel,
 .modify-panel,
-.getFee-panel {
+.getFee-panel,
+.addSingalProPanel {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -114,6 +124,13 @@
   height: 380px;
 }
 
+.addSingalProPanel {
+  margin-left: -457px;
+  margin-top: -209px;
+  width: 914px;
+  height: 418px;
+}
+
 .modify-panel .panel-title {
   position: absolute;
   left: 50%;
@@ -123,7 +140,8 @@
 .add-panel .close,
 .delete-panel .close,
 .modify-panel .close,
-.getFee-panel .close {
+.getFee-panel .close,
+.addSingalProPanel .close {
   margin: 0;
   padding: 0;
   background-color: transparent;
@@ -142,7 +160,8 @@
   /* margin-left: 29px; */
 }
 
-.add-panel form {
+.add-panel form,
+.addSingalProPanel form {
   margin-top: 50px;
 }
 
@@ -151,6 +170,11 @@
   /* border: 1px solid red; */
   width: 32%;
   /* padding: 10px; */
+}
+
+.addSingalProPanel label {
+  font-size: 12px;
+  width: 10%;
 }
 
 .modify-panel label {
@@ -173,7 +197,8 @@
   width: 70%;
 }
 
-.add-panel form .form-control {
+.add-panel form .form-control,
+.addSingalProPanel form .form-control {
   font-size: 12px;
 }
 
@@ -199,4 +224,34 @@
 #delete-container i,
 #getFee-container i {
   margin-right: 10px;
+}
+
+/* 宿舍财产 */
+.addSingalProPanel .dropdown {
+  width: 50px;
+}
+
+/* .addSingalProPanel .addpropanelsingle {
+  display: flex;
+} */
+
+.addSingalProPanel form {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+.addSingalProPanel .add-dorm-pro-single-confirm {
+  margin-left: 200px;
+  margin-top: -18px;
+}
+
+.addSingalProPanel form .col-sm-10 {
+  width: 50%;
+}
+
+.addSingalProPanel label {
+  width: 90px;
+  height: 20px;
+  line-height: 10px;
 }
