@@ -4,11 +4,8 @@ var db = require("../utils/db");
 
 //管理员信息渲染
 router.get("/admins/getadmin", function (req, res) {
-  console.log("here we are checkstudents", req.query);
   var sql = "select * from admins";
-  console.log(sql);
   db.query(sql, function (err, data) {
-    console.log(err, data);
     //数据库返回的数据在data里
     if (!err) {
       if (data.length) {
@@ -34,7 +31,6 @@ router.post("/admin/addadmin", function (req, res) {
     ");";
 
   db.query(insertSql, function (err, data) {
-    console.log("管理员添加sql", insertSql);
     if (!err) {
       if (!data.length) {
         res.json({ error: 0, msg: "管理员添加成功", data: data });

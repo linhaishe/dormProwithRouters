@@ -18,22 +18,15 @@ $(".login-btn").click(function () {
     },
     type: "get",
     success: function (res) {
-      console.log("资料获取成功");
-      console.log(res);
       //判断如果获取到数据则跳转到homepage页面
       if (res.data.length) {
         // 这个时候我们可以使用JSON.stringify()这个方法，来将JSON转换成为JSON字符串
         var d = JSON.stringify(res.data[0]);
         localStorage.setItem("data", d);
-        console.log(localStorage.data);
 
         //将JSON字符串转换成为JSON对象输出
         var json = localStorage.getItem("data");
         var jsonObj = JSON.parse(json);
-
-        console.log("json", json);
-        console.log("jsonObj", jsonObj);
-        console.log("jsonObjtype", jsonObj.type);
 
         //获取localstroange的数据，判断是否为管理员
         //登入成功后页面转换

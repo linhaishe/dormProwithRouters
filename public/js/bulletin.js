@@ -72,7 +72,6 @@ function getNews() {
     success: function (res) {
       if (res.data.length) {
         arr = res.data;
-        console.log(res);
         newsRender();
         createNewsPage();
       }
@@ -116,7 +115,6 @@ function newsRender() {
           .on("click", function () {
             $("#deleteNewscontainer").show();
             id = $(this).parents("tr").children().eq(0).text();
-            console.log(id);
             // type = console.log(id);
           });
         break;
@@ -158,7 +156,6 @@ $("#page-switch").on("click", "a", function () {
 
 // 点击向前
 $(".before").on("click", function () {
-  console.log("page", page);
   if (page > 1) {
     page--;
   }
@@ -167,7 +164,6 @@ $(".before").on("click", function () {
 
 //点击向后
 $(".next").on("click", function () {
-  console.log("n", n);
   if (page < n) {
     page++;
   }
@@ -198,7 +194,6 @@ $(".add-bulletin-confirm").on("click", function () {
       if (res.error == 0) {
         $("#addBulletinContainer").hide();
         getNews();
-        console.log(res);
       }
     },
   });
@@ -214,7 +209,6 @@ $(".delete-bulletin-confirm").on("click", function () {
       if (res.error == 0) {
         $("#deleteNewscontainer").hide();
         getNews();
-        console.log(res);
       }
     },
   });
@@ -234,7 +228,6 @@ $(".modify-bulletin-confirm").on("click", function () {
       if (res.error == 0) {
         $("#modifyNewscontainer").hide();
         getNews();
-        console.log(res);
       }
     },
   });

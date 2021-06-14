@@ -4,9 +4,7 @@ var db = require("../utils/db");
 
 //登入页面查询
 router.get("/login/getuser", function (req, res) {
-  console.log("登入查询", req.query);
   if (req.query.type == "管理员") {
-    console.log("管理员登入了");
     var sql =
       "select * from admins where adminId = " +
       req.query.username +
@@ -24,7 +22,6 @@ router.get("/login/getuser", function (req, res) {
       }
     });
   } else {
-    console.log("学生登入了");
     var sql =
       "select * from students where stuId = " +
       req.query.username +

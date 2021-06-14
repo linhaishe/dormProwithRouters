@@ -4,11 +4,8 @@ var db = require("../utils/db");
 
 //公告管理信息渲染
 router.get("/news/getnewscontrol", function (req, res) {
-  console.log("here we are checkstudents", req.query);
   var sql = "select * from news";
-  console.log(sql);
   db.query(sql, function (err, data) {
-    console.log(err, data);
     //数据库返回的数据在data里
     if (!err) {
       if (data.length) {

@@ -67,9 +67,7 @@ $.ajax({
   success: function (res) {
     if (res.data.length) {
       arr = res.data;
-      console.log("arr", arr);
       loginUserInfoArr = arr.filter((item) => item.id == jsonObj.id);
-      console.log("loginUserInfoArr", loginUserInfoArr);
       render();
     }
   },

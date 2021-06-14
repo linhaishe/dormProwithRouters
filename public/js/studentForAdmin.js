@@ -67,8 +67,6 @@ var page = 1; //当前的页数
 var id;
 var n;
 
-console.log(arr);
-
 function getStudents() {
   $.ajax({
     url: "/student/getstudent",
@@ -77,7 +75,6 @@ function getStudents() {
     success: function (res) {
       if (res.data.length) {
         arr = res.data;
-        console.log("stuarr", arr);
         stuRender();
         createStuPage();
       }
@@ -133,7 +130,6 @@ function stuRender() {
           .on("click", function () {
             $("#deleteStuContainer").show();
             id = $(this).parents("tr").attr("data-id");
-            console.log("学生id", id);
           });
         break;
       case "stuUpdate":
@@ -229,7 +225,6 @@ $("#page-switch").on("click", "a", function () {
 
 // 点击向前
 $(".before").on("click", function () {
-  console.log("page", page);
   if (page > 1) {
     page--;
   }
@@ -238,7 +233,6 @@ $(".before").on("click", function () {
 
 //点击向后
 $(".next").on("click", function () {
-  console.log("n", n);
   if (page < n) {
     page++;
   }
@@ -258,9 +252,6 @@ $(".add-stu-confirm").on("click", function () {
   //   }
   // }
 
-  console.log("stuUserId", $("#stuAccount").val());
-  console.log("studormid", $(".add-dorm-dropdown-btn").attr("data-dormid"));
-
   $.ajax({
     url: "/students/addstudent",
     data: {
@@ -272,7 +263,6 @@ $(".add-stu-confirm").on("click", function () {
     },
     type: "post",
     success: function (res) {
-      console.log(res);
       //弹框隐藏
       $("#addStuContainer").hide();
       getStudents();
@@ -290,7 +280,6 @@ $(".delete-stu-confirm").on("click", function () {
     success: function (res) {
       $("#deleteStuContainer").hide();
       getStudents();
-      console.log(res);
     },
   });
 });
@@ -308,10 +297,8 @@ $(".modify-stu-confirm").on("click", function () {
     },
     type: "post",
     success: function (res) {
-      console.log("res", res);
       if (res.error == 0) {
         $("#modifyStuContainer").hide();
-        console.log("修改成功");
         getStudents();
       }
     },
@@ -329,7 +316,6 @@ $.ajax({
   success: function (res) {
     if (res.data.length) {
       dormArr = res.data;
-      console.log("dormArr", dormArr);
 
       //将id和dormid存储在数组中
       $.each(dormArr, function (i, v) {
@@ -339,7 +325,6 @@ $.ajax({
         // obj[dormId] = v.dormId;
         dormIdName.push(obj);
       });
-      console.log("dormIdName", dormIdName);
 
       selectRender();
       //dropdown click func
@@ -348,16 +333,13 @@ $.ajax({
           var dormUniqueId = $(this).parent().attr("data-dormUniqueId");
           $("#add-select-dorm").text($(this).text());
           $(".add-dorm-dropdown-btn").attr("data-dormid", dormUniqueId);
-          console.log(dormUniqueId);
         });
         $(".modify-select-dorm li a").click(function () {
           var dormUniqueId = $(this).parent().attr("data-dormUniqueId");
           $("#modify-select-dorm").text($(this).text());
           $(".modify-dorm-dropdown-btn").attr("data-dormid", dormUniqueId);
-          console.log(dormUniqueId);
         });
       });
-      console.log("dormIdName", dormIdName);
     }
   },
 });

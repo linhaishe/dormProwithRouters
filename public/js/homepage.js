@@ -8,18 +8,12 @@ if (jsonObj.adminType == undefined) {
   $("#nav-left ul").children().eq(2).find("a").attr("href", "student.html");
 }
 
-// console.log("jsonObj", jsonObj);
-// console.log("jsonObj.name", jsonObj.name);
-// console.log("jsonObj.stuName", jsonObj.stuName);
-
 //jsonObj.stuName
 //页眉导航栏显示用户名
 if (jsonObj.adminName) {
   $(".userNamePanel").html(jsonObj.adminName);
-  console.log(jsonObj.name);
 } else {
   $(".userNamePanel").html(jsonObj.stuName);
-  console.log(jsonObj.stuName);
 }
 
 //左侧导航栏点击事件
@@ -45,7 +39,6 @@ $(".nav-link").each(function (i) {
   $(this).on("click", function () {
     var _this = $(this);
     if ($(this).attr("data-name") == "homepage") {
-      console.log("点击主页");
       $("#homepage").show();
       $("#dorm-homepage").hide();
       $("#student-admin-homepage").hide();
@@ -61,7 +54,6 @@ $(".nav-link").each(function (i) {
       $("tbody tr").show();
     }
     if ($(this).attr("data-name") == "dorm") {
-      console.log("点击宿舍管理");
       var _this = $(this);
       $("#dorm-homepage").show();
       $("#homepage").hide();
@@ -77,7 +69,6 @@ $(".nav-link").each(function (i) {
       $("tbody tr").show();
     }
     if ($(this).attr("data-name") == "student") {
-      console.log("学生管理");
       var _this = $(this);
       $("#student-admin-homepage").show();
       $("#dorm-homepage").hide();
@@ -93,7 +84,6 @@ $(".nav-link").each(function (i) {
       $("tbody tr").show();
     }
     if ($(this).attr("data-name") == "bulletin") {
-      console.log("公告管理");
       var _this = $(this);
       $("#bulletin-homepage").show();
       $("#student-admin-homepage").hide();
@@ -109,7 +99,6 @@ $(".nav-link").each(function (i) {
       $("tbody tr").show();
     }
     if ($(this).attr("data-name") == "admin") {
-      console.log("管理员页面");
       var _this = $(this);
       $("#admin-homepage").show();
       $("#bulletin-homepage").hide();
@@ -145,7 +134,6 @@ $(".menu-list").each(function (i) {
         .text()
         .substring(0, $(this).text().length - 1)
     );
-    console.log("text", text);
 
     // function addColor(_this) {
     //   $(_this).parent().siblings().children().css({ color: "" });
@@ -297,15 +285,10 @@ function diaoyong() {
       // var json2 = JSON.parse(res);
       // var arr = json2.data;
 
-      console.log(res.data);
       if (res.data.length) {
-        console.log("公告页面arr", arr);
-        console.log("公告页面res", res.data);
         //变成数组对象 [{},{},...]
         //将数据的内容存放到数组中，方便获取和遍历
         arr = res.data;
-        console.log(res);
-        console.log("获取公告内容res.count", res.count);
 
         //   //创建公告页面
         createBulletin();
@@ -335,7 +318,6 @@ function createBulletin() {
   //遍历中都有i,v,记得复习
 
   $.each(arr, function (i, v) {
-    console.log(v.title);
     $("#newsPage").append(
       '  <a href="#" class="list-group-item list-group-item-action">\
           <div class="d-flex w-100 justify-content-between">\
@@ -373,7 +355,6 @@ $("#news-page-switch").on("click", "a", function () {
 
 // 点击向后退
 $(".newsBefore").on("click", function () {
-  console.log("page", page);
   if (page > 1) {
     page--;
   }

@@ -4,13 +4,10 @@ var db = require("../utils/db");
 
 //学生信息渲染
 router.get("/student/getstudent", function (req, res) {
-  console.log("here we are checkstudents", req.query);
   var sql =
     "select students.id,students.stuId,students.stuName,students.stuUserId,students.stuDormId,students.stupwd,dorms.balance,dorms.dormId,dorms.dormName,dorms.peopleNum,dorms.dormType from students left join dorms on students.stuDormId = dorms.id";
 
-  console.log(sql);
   db.query(sql, function (err, data) {
-    console.log(err, data);
     //数据库返回的数据在data里
     if (!err) {
       if (data.length) {
@@ -24,7 +21,6 @@ router.get("/student/getstudent", function (req, res) {
 
 //学生添加
 router.route("/students/addstudent").post(function (req, res) {
-  console.log("req.body.stuId", req);
   var updateSql =
     "insert into students values (null," +
     req.body.stuId +
@@ -38,7 +34,6 @@ router.route("/students/addstudent").post(function (req, res) {
     req.body.stuPas +
     ")";
 
-  console.log("sql", updateSql);
   db.query(updateSql, function (err, data) {
     if (!err) {
       if (!data.length) {
@@ -53,7 +48,6 @@ router.route("/students/addstudent").post(function (req, res) {
 //学生删除
 router.post("/students/delstudent", function (req, res) {
   var delSql = "DELETE FROM students WHERE id = " + req.body.id + "";
-  console.log("delSql", delSql);
   db.query(delSql, function (err, data) {
     if (!err) {
       if (!data.length) {
@@ -78,7 +72,6 @@ router.post("/students/updatestudent", function (req, res) {
     req.body.id +
     "";
 
-  console.log("updateSql", updateSql);
   db.query(updateSql, function (err, data) {
     if (!err) {
       if (!data.length) {

@@ -97,10 +97,8 @@ function getAdmin() {
   $.ajax({
     url: "/admins/getadmin",
     success: function (res) {
-      console.log(res);
       if (res.data.length) {
         arr = res.data;
-        console.log("arr", arr);
         adminRender();
         createAdminPage();
       }
@@ -114,7 +112,6 @@ getAdmin();
 var loginUserArr = [];
 loginUserArr.push(jsonObj);
 
-console.log("loginUserArr", loginUserArr);
 
 function adminRender() {
   $("#adminTbody").html("");
@@ -179,7 +176,6 @@ function adminRender() {
             $("#deleteAdminContainer").show();
             // id = $(this).parents("tr").attr("data-id");
             id = $(this).parents("tr").children().first().text();
-            console.log(id);
           });
         break;
       case "updateAdmin":
@@ -189,7 +185,6 @@ function adminRender() {
             $("#modifyAdminContainer").show();
             // id = $(this).parents("tr").attr("data-id");
             id = $(this).parents("tr").children().first().text();
-            console.log(id);
             $("#modify-admin-id").val(
               $(this).parents("tr").children().first().text()
             );
@@ -222,7 +217,6 @@ function getAdmin() {
     //   data: {},
     //   type: "",
     success: function (res) {
-      console.log(res.data);
       if (res.data.length) {
         arr = res.data;
         adminRender();
@@ -317,7 +311,6 @@ $(".add-admin-confirm").on("click", function () {
   //     $(".warning").show();
   //   }
   // }
-  console.log("管理员添加按钮点击");
   $.ajax({
     url: "/admin/addadmin",
     data: {
@@ -328,7 +321,6 @@ $(".add-admin-confirm").on("click", function () {
     },
     type: "post",
     success: function (res) {
-      console.log(res);
       if (res.error == 0) {
         //弹框隐藏
         $("#addAdminContainer").hide();
@@ -368,7 +360,6 @@ $(".modify-admin-confirm").on("click", function () {
     success: function (res) {
       if (res.error == 0) {
         $("#modifyAdminContainer").hide();
-        console.log("修改成功");
         getAdmin();
       }
     },

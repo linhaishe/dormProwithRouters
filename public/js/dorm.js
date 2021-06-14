@@ -10,10 +10,8 @@ var jsonObj = JSON.parse(json);
 //页眉导航栏显示用户名
 if (jsonObj.name) {
   $(".userNamePanel").html(jsonObj.name);
-  console.log(jsonObj.name);
 } else {
   $(".userNamePanel").html(jsonObj.stuName);
-  console.log(jsonObj.stuName);
 }
 
 //用户点击退出时，强制登入页面并清空用户数据
@@ -64,11 +62,8 @@ function getDorm() {
     //   data: {},
     //   type: "",
     success: function (res) {
-      console.log("宿舍信息", res.data);
       if (res.data.length) {
         arr = res.data;
-        console.log("宿舍arr", arr);
-        console.log("jsonObj", jsonObj);
 
         dormRender();
         createDormPage();
@@ -125,7 +120,6 @@ function dormRender() {
             $("#delete-container").show();
             id = $(this).parents("tr").attr("data-id");
             // type =
-            console.log(id);
           });
         break;
       case "dormUpdate":
@@ -144,7 +138,6 @@ function dormRender() {
               $(this).parents("tr").children().eq(2).html()
             );
             $("#chargefee").val($(this).parents("tr").children().eq(3).html());
-            // type = console.log(id);
           });
         break;
     }
@@ -159,8 +152,6 @@ function dormRender() {
           $("#getFee-container").show();
           id = $(this).parents("tr").attr("data-id");
           type = $(this).parents("tr").children().eq(4).text();
-          console.log(id);
-          console.log(type);
         });
     }
   }
@@ -172,8 +163,6 @@ function dormRender() {
           $("#getFee-container").show();
           id = $(this).parents("tr").attr("data-id");
           type = $(this).parents("tr").children().eq(4).text();
-          console.log(id);
-          console.log(type);
         });
     }
   }
@@ -196,7 +185,6 @@ $("#page-switch").on("click", "a", function () {
 
 // 点击向前
 $(".before").on("click", function () {
-  console.log("page", page);
   if (page > 1) {
     page--;
   }
@@ -205,7 +193,6 @@ $(".before").on("click", function () {
 
 //点击向后
 $(".next").on("click", function () {
-  console.log("n", n);
   if (page < n) {
     page++;
   }
@@ -232,7 +219,6 @@ $(".add-dorm-confirm").on("click", function () {
     },
     type: "post",
     success: function (res) {
-      console.log(res);
 
       //弹框隐藏
       $("#add-container").hide();
@@ -240,7 +226,6 @@ $(".add-dorm-confirm").on("click", function () {
       $("#bill").val("");
       $("#dormId").val("");
       $("#dormName").val("");
-      console.log("添加成功");
     },
   });
 });
@@ -255,7 +240,6 @@ $(".delete-dorm-confirm").on("click", function () {
     success: function (res) {
       $("#delete-container").hide();
       getDorm();
-      console.log(res);
     },
   });
 });
@@ -274,7 +258,6 @@ $(".modify-dorm-confirm").on("click", function () {
     type: "post",
     success: function (res) {
       $("#modify-container").hide();
-      console.log("修改成功");
       getDorm();
     },
   });
@@ -289,7 +272,6 @@ $(".push-get-fee").on("click", function () {
     success: function (res) {
       $("#getFee-container").hide();
       getDorm();
-      console.log("修改状态成功");
     },
   });
 });

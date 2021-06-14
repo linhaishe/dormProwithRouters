@@ -5,11 +5,8 @@ var db = require("../utils/db");
 //宿舍信息渲染
 
 router.get("/dorm/getdorms", function (req, res) {
-  console.log("here we are checkdorms", req.query);
   var sql = "select * from dorms";
-  console.log(sql);
   db.query(sql, function (err, data) {
-    console.log(err, data);
     //数据库返回的数据在data里
     if (!err) {
       if (data.length) {
@@ -23,7 +20,6 @@ router.get("/dorm/getdorms", function (req, res) {
 
 //宿舍添加
 router.post("/dorm/adddorm", function (req, res) {
-  console.log("添加宿舍", req.body);
   var insertSql =
     "insert into dorms values (null," +
     req.body.balance +
@@ -41,9 +37,7 @@ router.post("/dorm/adddorm", function (req, res) {
     ',"' +
     req.body.dormName +
     '",default,default)';
-  console.log(insertSql2);
   db.query(insertSql2, function (err, data) {
-    console.log(err, data);
     //数据库返回的数据在data里
     if (!err) {
       if (!data.length) {
@@ -59,7 +53,6 @@ router.post("/dorm/adddorm", function (req, res) {
 //宿舍有人不能删除，因为外键的原因
 router.post("/dorm/deldorm", function (req, res) {
   var delSql = "DELETE FROM dorms WHERE id = " + req.body.dormId + "";
-  console.log("delSql", delSql);
   db.query(delSql, function (err, data) {
     if (!err) {
       if (!data.length) {
@@ -81,7 +74,6 @@ router.post("/dorm/updatedorm", function (req, res) {
     " WHERE id = " +
     req.body.id +
     "";
-  console.log("updateSql", updateSql);
   db.query(updateSql, function (err, data) {
     if (!err) {
       if (!data.length) {
@@ -101,7 +93,6 @@ router.post("/dorm/deptdorm", function (req, res) {
     " where id = " +
     req.body.id +
     "";
-  console.log("updateSql", updateSql);
   db.query(updateSql, function (err, data) {
     if (!err) {
       if (!data.length) {
