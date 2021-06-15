@@ -169,15 +169,20 @@
 #page-switch,
 #news-page-switch,
 #pro-page-switch,
-#checkfee-page-switch {
+#checkfee-page-switch,
+#checkpro-page-switch {
   /* margin: 0 auto; */
   text-align: center;
+}
+#checkpro-page-switch {
+  margin-top: -40px;
 }
 
 #page-switch button,
 #news-page-switch button,
 #pro-page-switch button,
-#checkfee-page-switch button {
+#checkfee-page-switch button,
+#checkpro-page-switch button {
   margin: 0;
   padding: 0;
   background-color: transparent;
@@ -197,7 +202,8 @@
 #page-switch a,
 #news-page-switch a,
 #pro-page-switch a,
-#checkfee-page-switch a {
+#checkfee-page-switch a,
+#checkpro-page-switch a {
   padding: 5px;
   text-decoration: none;
   color: black;

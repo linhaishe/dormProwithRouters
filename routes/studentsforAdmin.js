@@ -130,7 +130,6 @@ router.post("/chargeFeeRecord", function (req, res) {
     "," +
     req.body.stuId +
     ")";
-  console.log("sqlSelfRecord22", sqlSelfRecord22);
   db.query(sqlSelfRecord22, function (err, data) {
     //数据库返回的数据在data里
     if (!err) {
@@ -142,5 +141,7 @@ router.post("/chargeFeeRecord", function (req, res) {
     }
   });
 });
+
+//宿舍报修
 
 module.exports = router;

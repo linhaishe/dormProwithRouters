@@ -525,3 +525,13 @@ $(".add-fee-confirm").on("click", function () {
     },
   });
 });
+
+//宿舍报修
+$("#stuDormReport").on("click", function () {
+  $.ajax({
+    url: "/propertyReport",
+    type: "post",
+    data: {},
+    success: function () {},
+  });
+});

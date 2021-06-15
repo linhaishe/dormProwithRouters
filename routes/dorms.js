@@ -104,4 +104,20 @@ router.post("/dorm/deptdorm", function (req, res) {
   });
 });
 
+//单个宿舍拥有的宿舍财产
+router.get("/getDormProperty", function (req, res) {
+  var checkSql =
+    "select * from dormProperties where proDormId = " + req.query.id + "";
+  console.log("checkSql", checkSql);
+  db.query(checkSql, function (err, data) {
+    if (!err) {
+      if (data.length) {
+        res.json({ error: 0, msg: "宿舍财产获取成功", data: data });
+      } else {
+        res.json({ error: 1, msg: "宿舍财产获取失败" });
+      }
+    }
+  });
+});
+
 module.exports = router;

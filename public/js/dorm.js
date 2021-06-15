@@ -155,6 +155,8 @@ function dormRender() {
           .eq(i)
           .on("click", function () {
             $("#add-dorm-pro-single-container").show();
+            id = $(this).parents("tr").attr("data-id");
+            getDormProperty();
           });
         break;
     }
@@ -292,133 +294,104 @@ $(".push-get-fee").on("click", function () {
   });
 });
 
-//数据去重
-
-function unique(arr) {
-  return Array.from(new Set(arr));
+var dormPropertyArr = [];
+var dormCount = 10; //一页多少条数据
+var dormPage = 1; //当前的页数
+//添加和查看宿舍财产
+//获取后台某个宿舍的财产信息
+function getDormProperty() {
+  $.ajax({
+    url: "/getDormProperty",
+    data: { id: id, page: dormPage, count: dormCount },
+    success: function (res) {
+      if (res.error == 0) {
+        dormPropertyArr = res.data;
+        createDormPro();
+        createDormPage(res.count);
+        console.log("dormPropertyArr", dormPropertyArr);
+      }
+      if (res.error == 1) {
+        noPro();
+      }
+    },
+  });
 }
 
-var navArr = [];
-var uniqueArr = unique(navArr);
+//无财产信息返回页面显示
+function noPro() {
+  $("#addSingleProTbody").html("");
+  $("#addSingleProTbody").append('<tr><td colSpan="4">暂无财产</td></tr>');
+}
 
-for (var i = 0; i < uniqueArr.length; i++) {}
+//页面渲染,创建宿舍财产页面
+function createDormPro() {
+  $("#addSingleProTbody").html("");
+  $.each(dormPropertyArr, function (i, v) {
+    var stateRender;
+    var stateNum = v.proState;
+    switch (stateNum) {
+      case 1:
+        stateRender = "良好";
+        break;
+      case 2:
+        stateRender = "损坏";
+        break;
+      case 3:
+        stateRender = "正在修复";
+        break;
+      case 4:
+        stateRender = "废弃";
+        break;
+    }
+    $("#addSingleProTbody").append(
+      '              <tr>\
+                <th scope="row">' +
+        v.id +
+        "</th>\
+                <td>" +
+        v.proName +
+        "</td>\
+                <td>" +
+        stateRender +
+        '</td>\
+                <td>\
+                  <a class="delDormPro" href="#">删除</a\
+                  ><a class="updateDormPro" href="#">修改</a>\
+                </td>\
+              </tr>\
+'
+    );
+  });
+}
 
-var homepage = localStorage.getItem("homepage");
-var dorm = localStorage.getItem("dorm");
-var student = localStorage.getItem("student");
-var bulletin = localStorage.getItem("bulletin");
-var admin = localStorage.getItem("admin");
+//创建页码
+function createDormPage(n1) {
+  $("#checkfee-page-switch a").remove();
+  n = Math.ceil(n1 / dormCount);
+  for (var i = 1; i <= n; i++) {
+    $(".checkpro-before").before($('<a href="javascript:;">' + i + "</a>"));
+  }
+}
 
-//添加样式
-// function addCss() {
-//   $(".menu-list").css({
-//     height: "25px",
-//     width: "100px",
-//     background: "#0f6efd",
-//     color: "white",
-//     "text-align": "center",
-//     "line-height": "25px",
-//     "border-radius": "3px",
-//     margin: "10px",
-//     "font-size": "14px",
-//   });
-//   $(".menu-row").css({
-//     display: "flex",
-//     " align-items": "center",
-//     "align-content": "center",
-//   });
-//   $(".menu-list a").css({
-//     "text-decoration": "none",
-//     color: "white",
-//     "margin-left": "10px",
-//   });
-// }
+//子元素有点击事件的时候，将点击事件加给父元素
 
-// if (homepage) {
-//   navArr.push(homepage);
-//   $(".menu-row").append(
-//     $(
-//       '<div class="menu-list">' +
-//         localStorage.getItem("homepage") +
-//         '<a href="javascript:;">x</a></div>'
-//     )
-//   );
-//   addCss();
-// }
-// if (student) {
-//   navArr.push(student);
-//   $(".menu-row").append(
-//     $(
-//       '<div class="menu-list">' +
-//         localStorage.getItem("student") +
-//         '<a href="javascript:;">x</a></div>'
-//     )
-//   );
-//   addCss();
-// }
-// if (bulletin) {
-//   navArr.push(bulletin);
-//   $(".menu-row").append(
-//     $(
-//       '<div class="menu-list">' +
-//         localStorage.getItem("bulletin") +
-//         '<a href="javascript:;">x</a></div>'
-//     )
-//   );
-//   addCss();
-// }
-// if (admin) {
-//   navArr.push(admin);
-//   $(".menu-row").append(
-//     $(
-//       '<div class="menu-list">' +
-//         localStorage.getItem("admin") +
-//         '<a href="javascript:;">x</a></div>'
-//     )
-//   );
-//   addCss();
-// }
-// if (dorm) {
-//   navArr.push(dorm);
-//   $(".menu-row").append(
-//     $(
-//       '<div class="menu-list">' +
-//         localStorage.getItem("dorm") +
-//         '<a href="javascript:;">x</a></div>'
-//     )
-//   );
-//   addCss();
-// }
+$("#checkpro-page-switch").on("click", "a", function () {
+  dormPage = $(this).text();
+  getDormProperty();
+});
 
-// //面包屑点击事件
+// 点击向后退
+$(".checkpro-before").on("click", function () {
+  if (dormPage > 1) {
+    dormPage--;
+  }
+  getDormProperty();
+});
 
-// var navDiv = document.getElementsByClassName("menu-list");
-
-// for (var i = 0; i < navDiv.length; i++) {
-//   navDiv[i].onclick = function () {
-//     //获得点击数据
-//     var clickTest = this.firstChild.nodeValue;
-//     console.log(this.firstChild.nodeValue);
-//     if (clickTest == "公告主页") {
-//       console.log("zhelizhelizheli", clickTest);
-//       localStorage.removeItem("homepage");
-//       window.history.go(0);
-//     }
-//     if (clickTest == "宿舍管理") {
-//       localStorage.removeItem("dorm");
-//       window.history.go(0);
-//     }
-//     if (clickTest == "学生管理") {
-//       localStorage.removeItem("student");
-//       window.history.go(0);
-//     }
-//     if (clickTest == "公告管理") {
-//       localStorage.removeItem("bulletin");
-//       window.history.go(0);
-//     }
-//     if (clickTest == "管理员管理") {
-//       localStorage.removeItem("admin");
-//       window.history.go(0);
-//     }
-//   };
-// }
+//点击前进
+$(".checkpro-next").on("click", function () {
+  if (dormPage <= n) {
+    dormPage++;
+  }
+  getDormProperty();
+});

@@ -150,10 +150,6 @@ render();
 //   });
 // });
 
-var navArr = [];
-var homepage = localStorage.getItem("homepage");
-var student = localStorage.getItem("student");
-
 //添加样式
 // function addCss() {
 //   $(".menu-list").css({

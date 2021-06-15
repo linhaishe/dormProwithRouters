@@ -98,4 +98,20 @@ UPDATE dormProperties SET proName="扫把",proState=2,isUsed=2,proDormId=14 wher
 
 UPDATE payRecords SET amount = amount + 67 where stuId = 8;
 
+insert into payRecords values(null,now(),20,1,1);
+
+select id from dorms where id =1;
+
+select count(1) from students where stuDormId = (select id from dorms where id =1);
+
+
+
+
+
+
+
+
+
+
+
 
