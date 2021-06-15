@@ -120,4 +120,41 @@ router.get("/getDormProperty", function (req, res) {
   });
 });
 
+//未使用的财产筛选
+//select * from dormProperties where isUsed = 1 and proDormId is null
+router.get("/getNoUseProperty", function (req, res) {
+  var checkSql =
+    "select * from dormProperties where isUsed = 1 and proDormId is null";
+  console.log("checkSql", checkSql);
+  db.query(checkSql, function (err, data) {
+    if (!err) {
+      if (data.length) {
+        res.json({ error: 0, msg: "宿舍财产获取成功", data: data });
+      } else {
+        res.json({ error: 1, msg: "宿舍财产获取失败" });
+      }
+    }
+  });
+});
+
+//单个宿舍添加财产
+router.post("/addProSigle", function (req, res) {
+  var insertSql2 =
+    "update dormProperties set proDormId = " +
+    req.body.dormid +
+    " where id = " +
+    req.body.proUniId +
+    "";
+  db.query(insertSql2, function (err, data) {
+    //数据库返回的数据在data里
+    if (!err) {
+      if (!data.length) {
+        res.json({ error: 0, msg: "添加成功", data: data });
+      } else {
+        res.json({ error: 1, msg: "添加失败" });
+      }
+    }
+  });
+});
+
 module.exports = router;

@@ -104,7 +104,7 @@ select id from dorms where id =1;
 
 select count(1) from students where stuDormId = (select id from dorms where id =1);
 
-
+update dormProperties set proDormId = 1 where id = 9;
 
 
 

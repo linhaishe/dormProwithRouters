@@ -155,6 +155,7 @@ function dormRender() {
           .eq(i)
           .on("click", function () {
             $("#add-dorm-pro-single-container").show();
+            $("#selfDormId").val($(this).parents("tr").children().eq(0).html());
             id = $(this).parents("tr").attr("data-id");
             getDormProperty();
           });
@@ -394,4 +395,76 @@ $(".checkpro-next").on("click", function () {
     dormPage++;
   }
   getDormProperty();
+});
+
+//所有未使用的财产渲染
+var noUseArr = [];
+var proUniId;
+$.ajax({
+  url: "/getNoUseProperty",
+  success: function (res) {
+    if (res.error == 0) {
+      noUseArr = res.data;
+      console.log("noUseArr", noUseArr);
+      addsingleProSelectRender();
+      $(function () {
+        //选项点击事件
+        $(".addSingleproDormBtn li a").click(function () {
+          proUniId = $(this).parent().attr("data-proUniqueId");
+          //buttom赋值
+          $("#add-pro-dorm").text($(this).text());
+          //button添加class
+          $("#add-publicProBtn").attr("data-proUniqeId", proUniId);
+        });
+        // $(".updateproDormBtn li a").click(function () {
+        //   var dormUniqueId = $(this).parent().attr("data-dormUniqueId");
+        //   dormUniId = dormUniqueId;
+        //   console.log(dormUniqueId);
+        //   $("#modify-pro-dorm").text($(this).text());
+        //   $(".modify-dorm-dropdown-btn").attr("data-dormid", dormUniqueId);
+        // });
+      });
+    }
+  },
+});
+
+function addsingleProSelectRender() {
+  $(".addSingleproDormBtn").html();
+  $.each(noUseArr, function (i, v) {
+    $(".addSingleproDormBtn").append(
+      "<li data-proUniqueId=" +
+        v.id +
+        '><a class="dropdown-item" href="#">' +
+        v.proName +
+        "</a></li>"
+    );
+  });
+  // $(".updateproDormBtn").html();
+  // $.each(dormArr, function (i, v) {
+  //   $(".updateproDormBtn").append(
+  //     "<li data-dormUniqueId=" +
+  //       v.id +
+  //       '><a class="dropdown-item" href="#">' +
+  //       v.dormName +
+  //       "</a></li>"
+  //   );
+  // });
+}
+
+//单个宿舍添加财产
+$(".add-dorm-pro-single-confirm").on("click", function () {
+  $.ajax({
+    url: "/addProSigle",
+    type: "post",
+    data: {
+      dormid: id,
+      proUniId: $("#add-publicProBtn").attr("data-proUniqeId"),
+    },
+    success: function (res) {
+      if (res.error == 0) {
+        $("#add-dorm-pro-single-container").hide();
+        createDormPro();
+      }
+    },
+  });
 });
