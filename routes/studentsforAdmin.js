@@ -5,7 +5,7 @@ var db = require("../utils/db");
 //学生信息渲染
 router.get("/student/getstudent", function (req, res) {
   var sql =
-    "select students.id,students.stuId,students.stuName,students.stuUserId,students.stuDormId,students.stupwd,dorms.balance,dorms.dormId,dorms.dormName,dorms.peopleNum,dorms.dormType from students left join dorms on students.stuDormId = dorms.id";
+    "select students.id,students.stuId,students.stuName,students.stuUserId,students.stuDormId,students.stupwd,dorms.balance,dorms.dormId,dorms.dormName,dorms.dormType from students left join dorms on students.stuDormId = dorms.id";
 
   db.query(sql, function (err, data) {
     //数据库返回的数据在data里

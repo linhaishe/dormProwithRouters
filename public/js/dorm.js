@@ -74,7 +74,6 @@ function getDorm() {
     success: function (res) {
       if (res.data.length) {
         arr = res.data;
-
         dormRender();
         createDormPage();
       }

@@ -434,14 +434,14 @@
         <button class="close">X</button>
         <form>
           <div class="mb-3 row">
-            <label for="dormId" class="col-sm-2 col-form-label"
+            <label for="selfDormId" class="col-sm-2 col-form-label"
               ><span style="color: red">* </span>宿舍编号</label
             >
             <div class="col-sm-10">
               <input
                 type="text"
                 class="form-control proDrom"
-                id="dormId"
+                id="selfDormId"
                 disabled
               />
             </div>
@@ -930,14 +930,14 @@
         </form> -->
         <div id="table-container">
           <div class="mb-3 row">
-            <label for="dormId" class="col-sm-2 col-form-label"
+            <label for="repairdormId" class="col-sm-2 col-form-label"
               ><span style="color: red">* </span>宿舍编号</label
             >
             <div class="col-sm-10">
               <input
                 type="text"
                 class="form-control proDrom"
-                id="dormId"
+                id="repairdormId"
                 disabled
               />
             </div>
@@ -1013,11 +1013,11 @@
         <button class="close">X</button>
         <form>
           <div class="mb-3 row">
-            <label for="stuId" class="col-sm-2 col-form-label"
+            <label for="chargestuId" class="col-sm-2 col-form-label"
               ><span style="color: red">* </span>缴费金额</label
             >
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="stuId" />
+              <input type="text" class="form-control" id="chargestuId" />
             </div>
             <span class="warning" style="color: red">请输入正确内容</span>
           </div>
@@ -1560,7 +1560,7 @@
             </tr>
           </thead>
           <tbody id="propertyTbody">
-            <tr>
+            <!-- <tr>
               <th scope="row">1</th>
               <td>桌子</td>
               <td>良好</td>
@@ -1625,14 +1625,14 @@
                 <a class="delProperty" href="#">删除</a
                 ><a class="PropertyUpdate" href="#">修改</a>
               </td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
       </div>
-      <div id="page-switch">
-        <button class="before">&lt</button>
-        <a href="javascript:;">1</a>
-        <button class="next">&gt</button>
+      <div id="pro-page-switch">
+        <button class="pro-before">&lt</button>
+        <!-- <a href="javascript:;">1</a> -->
+        <button class="pro-next">&gt</button>
       </div>
     </div>
     <!--添加公共财产-->
@@ -1678,25 +1678,25 @@
           </div>
 
           <div class="mb-3 row">
-            <label for="add-pro-dorm" class="col-sm-2 col-form-label"
+            <label for="add-pro-use" class="col-sm-2 col-form-label"
               ><span style="color: red">* </span>所属宿舍</label
             >
             <div class="dropdown">
               <button
                 class="btn btn-outline-secondary dropdown-toggle"
                 type="button"
-                id="add-pro-dorm"
+                id="add-publicProBtn"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
                 请选择所属宿舍
               </button>
               <ul
-                class="dropdown-menu proDormBtn main-dropdown-menu"
-                aria-labelledby="dropdownMenu proDormBtn"
+                class="dropdown-menu add-publicPro main-dropdown-menu"
+                aria-labelledby="dropdownMenu add-publicPro"
               >
-                <li><a class="dropdown-item" href="#">1003</a></li>
-                <li><a class="dropdown-item" href="#">1004</a></li>
+                <!-- <li><a class="dropdown-item" href="#">1003</a></li>
+                <li><a class="dropdown-item" href="#">1004</a></li> -->
               </ul>
             </div>
             <span class="warning" style="color: red">请选择正确选项</span>

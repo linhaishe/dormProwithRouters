@@ -13,6 +13,7 @@ var homePageRouter = require("./routes/homepage");
 var newsRouter = require("./routes/news");
 var stuRouter = require("./routes/studentsforAdmin");
 var loginRouter = require("./routes/login");
+var propertyRouter = require("./routes/property");
 
 app.use(adminRouter);
 app.use(dormsRouter);
@@ -20,6 +21,7 @@ app.use(homePageRouter);
 app.use(newsRouter);
 app.use(stuRouter);
 app.use(loginRouter);
+app.use(propertyRouter);
 
 app.use(express.static("public"));
 
