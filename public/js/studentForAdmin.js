@@ -63,6 +63,7 @@ for (let i = 0; i < $(".cancel").length; i++) {
       $("#charge-record-container").hide();
       $("#stuDormRepair").hide();
       $("#reportDormProperty").hide();
+      $("#stu-charge-fee-container").hide();
     });
 }
 
@@ -71,6 +72,12 @@ var count = 10; //一页多少条数据
 var page = 1; //当前的页数
 var id;
 var n;
+
+//查看缴费记录信息渲染
+var checkFeeArr = [];
+var FeeCount = 10; //一页多少条数据
+var FeePage = 1; //当前的页数
+var dormKeyId;
 
 function getStudents() {
   $.ajax({
@@ -93,7 +100,9 @@ function stuRender() {
   $("#mainPageTbody").html("");
   $.each(arr.slice((page - 1) * count, page * count), function (i, v) {
     $("#mainPageTbody").append(
-      "            <tr data-pass=" +
+      "            <tr data-dormKeyId=" +
+        v.stuDormId +
+        " data-pass=" +
         v.stupwd +
         " data-id=" +
         v.id +
@@ -163,6 +172,8 @@ function stuRender() {
           .on("click", function () {
             $("#charge-record-container").show();
             id = $(this).parents("tr").attr("data-id");
+            getPayRecords();
+            console.log(id);
           });
         break;
       case "stuDormReport":
@@ -178,7 +189,11 @@ function stuRender() {
           .eq(i)
           .on("click", function () {
             $("#stu-charge-fee-container").show();
+            dormId = $(this).parents("tr").children().eq(3).text();
             id = $(this).parents("tr").attr("data-id");
+            dormKeyId = $(this).parents("tr").attr("data-dormKeyId");
+            console.log("dormId", dormId);
+            $("#chargefeeAmount").val("");
           });
         break;
     }
@@ -415,134 +430,98 @@ var uniqueArr = unique(navArr);
 
 for (var i = 0; i < uniqueArr.length; i++) {}
 
-//添加样式
-// function addCss() {
-//   $(".menu-list").css({
-//     height: "25px",
-//     width: "100px",
-//     background: "#0f6efd",
-//     color: "white",
-//     "text-align": "center",
-//     "line-height": "25px",
-//     "border-radius": "3px",
-//     margin: "10px",
-//     "font-size": "14px",
-//   });
-//   $(".menu-row").css({
-//     display: "flex",
-//     " align-items": "center",
-//     "align-content": "center",
-//   });
-//   $(".menu-list a").css({
-//     "text-decoration": "none",
-//     color: "white",
-//     "margin-left": "10px",
-//   });
-// }
+//获取后台充值信息
+function getPayRecords() {
+  $.ajax({
+    url: "/getPayRecords",
+    type: "post",
+    data: { id: id, page: FeePage, count: FeeCount },
+    success: function (res) {
+      if (res.data.length) {
+        checkFeeArr = res.data;
+        createPayRecords();
+        createPayPage(res.count);
+        console.log("checkFeeArr", checkFeeArr);
+      }
+    },
+  });
+}
 
-// if (homepage) {
-//   navArr.push(homepage);
-//   $(".menu-row").append(
-//     $(
-//       '<div class="menu-list">' +
-//         localStorage.getItem("homepage") +
-//         '<a href="javascript:;">x</a></div>'
-//     )
-//   );
-//   addCss();
-// }
-// if (student) {
-//   navArr.push(student);
-//   $(".menu-row").append(
-//     $(
-//       '<div class="menu-list">' +
-//         localStorage.getItem("student") +
-//         '<a href="javascript:;">x</a></div>'
-//     )
-//   );
-//   addCss();
-// }
-// if (bulletin) {
-//   navArr.push(bulletin);
-//   $(".menu-row").append(
-//     $(
-//       '<div class="menu-list">' +
-//         localStorage.getItem("bulletin") +
-//         '<a href="javascript:;">x</a></div>'
-//     )
-//   );
-//   addCss();
-// }
-// if (admin) {
-//   navArr.push(admin);
-//   $(".menu-row").append(
-//     $(
-//       '<div class="menu-list">' +
-//         localStorage.getItem("admin") +
-//         '<a href="javascript:;">x</a></div>'
-//     )
-//   );
-//   addCss();
-// }
-// if (dorm) {
-//   navArr.push(dorm);
-//   $(".menu-row").append(
-//     $(
-//       '<div class="menu-list">' +
-//         localStorage.getItem("dorm") +
-//         '<a href="javascript:;">x</a></div>'
-//     )
-//   );
-//   addCss();
-// }
+//页面渲染,创建充值页面
 
-// //搜索
-// $(".search").on("click", function () {
-//   var searchText = $(".stuSearch").val();
-//   if ($.trim(searchText) != "") {
-//     $("tbody tr")
-//       .hide()
-//       .filter(":contains('" + searchText + "')")
-//       .show();
-//   }
-// });
+function createPayRecords() {
+  $("#checkFeeTbody").html("");
+  $.each(checkFeeArr, function (i, v) {
+    $("#checkFeeTbody").append(
+      '            <tr>\
+              <th scope="row">' +
+        v.amount +
+        "</th>\
+              <td>" +
+        v.payTime +
+        "</td>\
+            </tr>\
+"
+    );
+  });
+}
 
-// //重置
-// $(".reset").on("click", function () {
-//   $(".stuSearch").val("");
-//   render();
-//   createPage();
-// });
+//创建充值查询页面页码
+function createPayPage(n1) {
+  $("#checkfee-page-switch a").remove();
+  n = Math.ceil(n1 / FeeCount);
+  for (var i = 1; i <= n; i++) {
+    $(".checkfeeBefore").before($('<a href="javascript:;">' + i + "</a>"));
+  }
+}
 
-// //面包屑点击事件
+//子元素有点击事件的时候，将点击事件加给父元素
 
-// var navDiv = document.getElementsByClassName("menu-list");
+$("#checkfee-page-switch").on("click", "a", function () {
+  FeePage = $(this).text();
+  getPayRecords();
+});
 
-// for (var i = 0; i < navDiv.length; i++) {
-//   navDiv[i].onclick = function () {
-//     //获得点击数据
-//     var clickTest = this.firstChild.nodeValue;
-//     console.log(this.firstChild.nodeValue);
-//     if (clickTest == "公告主页") {
-//       console.log("zhelizhelizheli", clickTest);
-//       localStorage.removeItem("homepage");
-//       window.history.go(0);
-//     }
-//     if (clickTest == "宿舍管理") {
-//       localStorage.removeItem("dorm");
-//       window.history.go(0);
-//     }
-//     if (clickTest == "学生管理") {
-//       localStorage.removeItem("student");
-//       window.history.go(0);
-//     }
-//     if (clickTest == "公告管理") {
-//       localStorage.removeItem("bulletin");
-//       window.history.go(0);
-//     }
-//     if (clickTest == "管理员管理") {
-//       localStorage.removeItem("admin");
-//       window.history.go(0);
-//     }
-//   };
-// }
+// 点击向后退
+$(".checkfeeBefore").on("click", function () {
+  if (FeePage > 1) {
+    FeePage--;
+  }
+  getPayRecords();
+});
+
+//点击前进
+$(".checkfeeAfter").on("click", function () {
+  if (FeePage <= n) {
+    FeePage++;
+  }
+  getPayRecords();
+});
+
+//学生充值缴费
+$(".add-fee-confirm").on("click", function () {
+  $.ajax({
+    url: "/chargeFee",
+    type: "post",
+    data: { amount: $("#chargefeeAmount").val(), dormId: dormId },
+    success: function (res) {
+      if (res.error == 0) {
+        $("#stu-charge-fee-container").hide();
+        $("#chargefeeAmount").val("");
+        getStudents();
+      }
+    },
+  });
+  $.ajax({
+    url: "/chargeFeeRecord",
+    type: "post",
+    data: { amount: $("#chargefeeAmount").val(), stuId: id, dormId: dormKeyId },
+    success: function (res) {
+      if (res.error == 0) {
+        $("#stu-charge-fee-container").hide();
+        $("#chargefeeAmount").val("");
+        getStudents();
+      }
+    },
+  });
+});

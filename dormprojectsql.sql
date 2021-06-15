@@ -96,6 +96,6 @@ select dormProperties.id,dormProperties.proName,dormProperties.proState,dormProp
 
 UPDATE dormProperties SET proName="扫把",proState=2,isUsed=2,proDormId=14 where id = 7;
 
-
+UPDATE payRecords SET amount = amount + 67 where stuId = 8;
 
 

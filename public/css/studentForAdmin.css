@@ -123,9 +123,9 @@
 
 #charge-fee-panel {
   margin-left: -206px;
-  margin-top: -90px;
+  margin-top: -85px;
   width: 412px;
-  height: 180px;
+  height: 170px;
 }
 
 .stu-add-panel .close,
@@ -154,7 +154,7 @@
 .modity-panel form,
 #charge-fee-panel form {
   width: 100%;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .stu-add-panel label,
@@ -194,6 +194,10 @@
   margin-top: 10px;
   display: flex;
   justify-content: center;
+}
+
+#charge-fee-panel .col-auto {
+  text-align: center;
 }
 
 #deleteStuContainer p {

@@ -329,9 +329,9 @@ function diaoyong() {
         //将数据的内容存放到数组中，方便获取和遍历
         arr = res.data;
 
-        //   //创建公告页面
+        //创建公告页面
         createBulletin();
-        //   //创建page页面
+        // 创建page页面;
         createPage(res.count);
       }
     },

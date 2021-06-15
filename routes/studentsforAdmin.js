@@ -83,4 +83,64 @@ router.post("/students/updatestudent", function (req, res) {
   });
 });
 
+//充值信息渲染
+router.post("/getPayRecords", function (req, res) {
+  var sql = "SELECT * FROM payRecords where stuId = " + req.body.id + "";
+
+  db.query(sql, function (err, data) {
+    //数据库返回的数据在data里
+    if (!err) {
+      if (data.length) {
+        res.json({ error: 0, msg: "充值记录查询成功", data: data });
+      } else {
+        res.json({ error: 1, msg: "充值记录查询失败" });
+      }
+    }
+  });
+});
+
+//学生缴费充值,宿舍余额更改
+router.post("/chargeFee", function (req, res) {
+  var sqlSelfRecord2 =
+    "UPDATE dorms SET balance = balance + " +
+    req.body.amount +
+    " where dormId = " +
+    req.body.dormId +
+    "";
+
+  db.query(sqlSelfRecord2, function (err, data) {
+    //数据库返回的数据在data里
+    if (!err) {
+      if (!data.length) {
+        res.json({ error: 0, msg: "充值成功", data: data });
+      } else {
+        res.json({ error: 1, msg: "充值失败" });
+      }
+    }
+  });
+});
+
+//学生缴费充值,充值记录更改
+router.post("/chargeFeeRecord", function (req, res) {
+  var sqlSelfRecord22 =
+    "insert into payRecords values(null,now()," +
+    req.body.amount +
+    "," +
+    req.body.dormId +
+    "," +
+    req.body.stuId +
+    ")";
+  console.log("sqlSelfRecord22", sqlSelfRecord22);
+  db.query(sqlSelfRecord22, function (err, data) {
+    //数据库返回的数据在data里
+    if (!err) {
+      if (!data.length) {
+        res.json({ error: 0, msg: "充值成功", data: data });
+      } else {
+        res.json({ error: 1, msg: "充值失败" });
+      }
+    }
+  });
+});
+
 module.exports = router;

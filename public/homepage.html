@@ -670,21 +670,21 @@
               <th scope="col">缴费时间</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
+          <tbody id="checkFeeTbody">
+            <!-- <tr>
               <th scope="row">5</th>
               <td>2021-5-10 15:03:22</td>
             </tr>
             <tr>
               <th scope="row">6</th>
               <td>2021-5-10 15:03:22</td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
-        <div id="page-switch">
-          <button>&lt</button>
-          <a href="javascript:;">1</a>
-          <button>&gt</button>
+        <div id="checkfee-page-switch">
+          <button class="checkfeeBefore">&lt</button>
+          <!-- <a href="javascript:;">1</a> -->
+          <button class="checkfeeAfter">&gt</button>
         </div>
       </div>
     </div>
@@ -1013,13 +1013,21 @@
         <button class="close">X</button>
         <form>
           <div class="mb-3 row">
-            <label for="chargestuId" class="col-sm-2 col-form-label"
+            <label for="chargefeeAmount" class="col-sm-2 col-form-label"
               ><span style="color: red">* </span>缴费金额</label
             >
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="chargestuId" />
+              <input type="text" class="form-control" id="chargefeeAmount" />
             </div>
             <span class="warning" style="color: red">请输入正确内容</span>
+          </div>
+          <div class="col-auto">
+            <button type="button" class="btn btn-outline-secondary cancel">
+              取消
+            </button>
+            <button type="submit" class="btn btn-primary add-fee-confirm">
+              确定
+            </button>
           </div>
         </form>
       </div>
