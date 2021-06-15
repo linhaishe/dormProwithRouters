@@ -27,45 +27,6 @@ for (let i = 0; i < $(".cancel").length; i++) {
     });
 }
 
-//删除修改事件
-
-for (let i = 0; i < $("a").length; i++) {
-  var clickText = $("a").eq(i).attr("class");
-  switch (clickText) {
-    case "delProperty":
-      $("a")
-        .eq(i)
-        .on("click", function () {
-          $("#deletePropertyContainer").show();
-          // id = $(this).parents("tr").attr("data-id");
-          id = $(this).parents("tr").children().first().text();
-        });
-      break;
-    case "PropertyUpdate":
-      $("a")
-        .eq(i)
-        .on("click", function () {
-          $("#modifyProContainer").show();
-          // id = $(this).parents("tr").attr("data-id");
-          id = $(this).parents("tr").children().first().text();
-          $("#modify-pro-id").val(
-            $(this).parents("tr").children().first().text()
-          );
-          $("#modify-pro-name").val(
-            $(this).parents("tr").children().eq(1).text()
-          );
-          $("#modify-pro-type").text(
-            $(this).parents("tr").children().eq(2).text()
-          );
-          $("#modify-pro-dorm").text($(this).parents("tr").attr("data-pass"));
-          $("#modify-pro-use").text(
-            $(this).parents("tr").children().eq(4).text()
-          );
-        });
-      break;
-  }
-}
-
 //获取财产页面
 var arr = []; //存所有的数据;
 var count1 = 10; //一页多少条数据
@@ -131,8 +92,8 @@ function propertyRender() {
         break;
     }
     $("#propertyTbody").append(
-      "            <tr data-id=" +
-        v.id +
+      "            <tr data-dormId=" +
+        v.proDormId +
         '>\
               <th scope="row">' +
         v.id +
@@ -156,6 +117,48 @@ function propertyRender() {
             </tr>\
 '
     );
+    //删除修改事件
+
+    for (let i = 0; i < $("a").length; i++) {
+      var clickText = $("a").eq(i).attr("class");
+      switch (clickText) {
+        case "delProperty":
+          $("a")
+            .eq(i)
+            .on("click", function () {
+              $("#deletePropertyContainer").show();
+              // id = $(this).parents("tr").attr("data-id");
+              id = $(this).parents("tr").children().first().text();
+            });
+          break;
+        case "PropertyUpdate":
+          $("a")
+            .eq(i)
+            .on("click", function () {
+              $("#modifyProContainer").show();
+              // id = $(this).parents("tr").attr("data-id");
+              id = $(this).parents("tr").children().first().text();
+              //buttom赋值
+
+              $("#modify-pro-id").val(
+                $(this).parents("tr").children().first().text()
+              );
+              $("#modify-pro-name").val(
+                $(this).parents("tr").children().eq(1).text()
+              );
+              $("#modify-pro-type").text(
+                $(this).parents("tr").children().eq(2).text()
+              );
+              $("#modify-pro-dorm").text(
+                $(this).parents("tr").children().eq(3).text()
+              );
+              $("#modify-pro-use").text(
+                $(this).parents("tr").children().eq(4).text()
+              );
+            });
+          break;
+      }
+    }
   });
 }
 
@@ -250,9 +253,9 @@ $(function () {
   $(".proStateBtn li a").click(function () {
     $("#add-pro-type").text($(this).text());
   });
-  // $(".add-publicPro li a").click(function () {
-  //   $("#add-publicProBtn").text($(this).text());
-  // });
+  $(".updateproDormBtn li a").click(function () {
+    $("#modify-pro-dorm").text($(this).text());
+  });
   $(".addProUseBtn li a").click(function () {
     $("#add-pro-use").text($(this).text());
   });
@@ -285,11 +288,13 @@ $.ajax({
           //button添加class
           $("#add-publicProBtn").attr("data-dormid", dormUniqueId);
         });
-        // $(".modify-select-dorm li a").click(function () {
-        //   var dormUniqueId = $(this).parent().attr("data-dormUniqueId");
-        //   $("#modify-select-dorm").text($(this).text());
-        //   $(".modify-dorm-dropdown-btn").attr("data-dormid", dormUniqueId);
-        // });
+        $(".updateproDormBtn li a").click(function () {
+          var dormUniqueId = $(this).parent().attr("data-dormUniqueId");
+          dormUniId = dormUniqueId;
+          console.log(dormUniqueId);
+          $("#modify-pro-dorm").text($(this).text());
+          $(".modify-dorm-dropdown-btn").attr("data-dormid", dormUniqueId);
+        });
       });
     }
   },
@@ -304,22 +309,87 @@ $.ajax({
 function addProSelectRender() {
   $(".add-publicPro").html();
   $.each(dormArr, function (i, v) {
+    console.log("dormArr", dormArr);
     $(".add-publicPro").append(
       "<li data-dormUniqueId=" +
         v.id +
         '><a class="dropdown-item" href="#">' +
-        v.dormId +
+        v.dormName +
         "</a></li>"
     );
   });
-  // $(".modify-select-dorm").html();
-  // $.each(dormIdName, function (i, v) {
-  //   $(".modify-select-dorm").append(
-  //     "<li data-dormUniqueId=" +
-  //       v.id +
-  //       '><a class="dropdown-item" href="#">' +
-  //       v.dormId +
-  //       "</a></li>"
-  //   );
-  // });
+  $(".updateproDormBtn").html();
+  $.each(dormArr, function (i, v) {
+    $(".updateproDormBtn").append(
+      "<li data-dormUniqueId=" +
+        v.id +
+        '><a class="dropdown-item" href="#">' +
+        v.dormName +
+        "</a></li>"
+    );
+  });
 }
+
+//公共财产删除
+$(".delete-pro-confirm").on("click", function () {
+  $.ajax({
+    url: "/deleProperty",
+    type: "post",
+    data: { id: id },
+    success: function (res) {
+      if (res.error == 0) {
+        $("#deletePropertyContainer").hide();
+        getProperties();
+      }
+    },
+  });
+});
+
+//公共财产更新
+
+$(".modify-pro-confirm").on("click", function () {
+  var stateText = $("#modify-pro-type").text();
+  var usedText = $("#modify-pro-use").text();
+
+  switch (stateText) {
+    case "良好":
+      proState = 1;
+      break;
+    case "损坏":
+      proState = 2;
+      break;
+    case "正在修复":
+      proState = 3;
+      break;
+    case "废弃":
+      proState = 4;
+      break;
+  }
+
+  switch (usedText) {
+    case "未使用":
+      proUsed = 1;
+      break;
+    case "已使用":
+      proUsed = 2;
+      break;
+  }
+
+  $.ajax({
+    url: "/updateProperty",
+    type: "post",
+    data: {
+      id: id,
+      proName: $("#modify-pro-name").val(),
+      proState: proState,
+      proDorm: dormUniId,
+      proUsed: proUsed,
+    },
+    success: function (res) {
+      if (res.error == 0) {
+        $("#modifyProContainer").hide();
+        getProperties();
+      }
+    },
+  });
+});

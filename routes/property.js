@@ -56,4 +56,42 @@ router.post("/addProperties", function (req, res) {
   });
 });
 
+router.post("/deleProperty", function (req, res) {
+  var addSql = "delete from dormProperties where id = " + req.body.id + "";
+  db.query(addSql, function (err, data) {
+    if (!err) {
+      if (!data.length) {
+        res.json({ error: 0, msg: "删除成功", data: data });
+      } else {
+        res.json({ error: 1, msg: "删除失败" });
+      }
+    }
+  });
+});
+
+router.post("/updateProperty", function (req, res) {
+  var updateSql =
+    'UPDATE dormProperties SET proName="' +
+    req.body.proName +
+    '",proState=' +
+    req.body.proState +
+    ",isUsed=" +
+    req.body.proUsed +
+    ",proDormId=" +
+    req.body.proDorm +
+    " where id = " +
+    req.body.id +
+    "";
+  console.log(updateSql);
+  db.query(updateSql, function (err, data) {
+    if (!err) {
+      if (!data.length) {
+        res.json({ error: 0, msg: "删除成功", data: data });
+      } else {
+        res.json({ error: 1, msg: "删除失败" });
+      }
+    }
+  });
+});
+
 module.exports = router;

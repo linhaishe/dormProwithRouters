@@ -91,8 +91,10 @@ CREATE TABLE dormProperties(
 
 insert into dormProperties values(null,"椅子",1,1,14);
 
+select dormProperties.id,dormProperties.proName,dormProperties.proState,dormProperties.isUsed,dormProperties.proDormId,dorms.balance,dorms.dormId,dorms.dormName,dorms.dormtype from dormProperties left join dorms on dormProperties.proDormId = dorms.id;
 
 
+UPDATE dormProperties SET proName="扫把",proState=2,isUsed=2,proDormId=14 where id = 7;
 
 
 
