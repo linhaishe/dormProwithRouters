@@ -27,6 +27,6 @@ GXA 第三阶段项目课业
 
 run with node and the use of database of mysql
 
-1st ver : https://github.com/linhaishe/DormitoryManagementSystemProject
-2nd ver : https://github.com/linhaishe/dormProject
-3rd ver : https://github.com/linhaishe/dormProwithRouters
+1. 1st ver : https://github.com/linhaishe/DormitoryManagementSystemProject
+2. 2nd ver : https://github.com/linhaishe/dormProject
+3. 3rd ver : https://github.com/linhaishe/dormProwithRouters
