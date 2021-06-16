@@ -7,37 +7,16 @@ router.get("/news/getnews", function (req, res) {
   var sqlCount = "select count(1) total from news";
   var sqlteacher =
     "select * from news limit " +
-    (req.query.page - 1) * req.query.count +
+    (req.query.page - 1) * req.query.pageNum +
     "," +
-    req.query.count;
+    req.query.pageNum;
 
   var sqlLimit =
     "select * from news limit " +
-    (req.query.page - 1) * req.query.count +
+    (req.query.page - 1) * req.query.pageNum +
     "," +
-    req.query.count +
+    req.query.pageNum +
     "";
-
-  // db.query(sqlCount, function (err, data) {
-  //   console.log(err, data);
-  //   //数据库返回的数据在data里
-  //   if (!err) {
-  //     if (data.length) {
-  //       res.json({ error: 0, msg: "查询成功", data: data });
-  //     } else {
-  //       res.json({ error: 1, msg: "查询失败" });
-  //     }
-  //   }
-  //   db.query(sqlLimit, function (err, data) {
-  //     if (!err) {
-  //       if (data.length) {
-  //         res.json({ error: 0, msg: "查询成功", data: data });
-  //       } else {
-  //         res.json({ error: 1, msg: "查询失败" });
-  //       }
-  //     }
-  //   });
-  // });
 
   db.query(sqlteacher, function (err, data) {
     if (err) {
@@ -47,11 +26,33 @@ router.get("/news/getnews", function (req, res) {
         if (err2) {
           res.json({ error: 1, msg: err2 });
         } else {
-          res.json({ error: 0, data: data, count: data2[0].total });
+          console.log("data2[0]", data2[0]);
+          res.json({ error: 0, data: data, count3: data2[0].total });
         }
       });
     }
   });
 });
+
+// db.query(sqlCount, function (err, data) {
+//   console.log(err, data);
+//   //数据库返回的数据在data里
+//   if (!err) {
+//     if (data.length) {
+//       res.json({ error: 0, msg: "查询成功", data: data });
+//     } else {
+//       res.json({ error: 1, msg: "查询失败" });
+//     }
+//   }
+//   db.query(sqlLimit, function (err, data) {
+//     if (!err) {
+//       if (data.length) {
+//         res.json({ error: 0, msg: "查询成功", data: data });
+//       } else {
+//         res.json({ error: 1, msg: "查询失败" });
+//       }
+//     }
+//   });
+// });
 
 module.exports = router;

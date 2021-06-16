@@ -318,7 +318,7 @@ function renderTime(date) {
 }
 
 var arr = []; //存所有的数据;
-var count1 = 5; //一页多少条数据
+var newsNum = 5; //一页多少条数据
 var page = 1; //当前的页数
 var n;
 
@@ -326,7 +326,7 @@ function diaoyong() {
   //公告页数据获取和渲染
   $.ajax({
     url: "/news/getnews",
-    data: { page: page, count: count1 },
+    data: { page: page, pageNum: newsNum },
     success: function (res) {
       //获取数据成功后
       // var json2 = JSON.parse(res);
@@ -340,7 +340,9 @@ function diaoyong() {
         //创建公告页面
         createBulletin();
         // 创建page页面;
-        createPage(res.count);
+        createPage(res.count3);
+        console.log("res.count3", res.count3);
+        //8
       }
     },
   });
@@ -387,7 +389,11 @@ function createBulletin() {
 //创建页码
 function createPage(n1) {
   $("#news-page-switch a").remove();
-  n = Math.ceil(n1 / count1);
+  n = Math.ceil(n1 / newsNum);
+  console.log("n", n);
+  console.log("n1", n1);
+  console.log("newsNum", newsNum);
+
   for (var i = 1; i <= n; i++) {
     $(".newsNext").before($('<a href="javascript:;">' + i + "</a>"));
   }
