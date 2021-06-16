@@ -22,7 +22,7 @@ GXA 第三阶段项目课业
 ### 技术
 
 - 1.数据库选用 SQLServer
-- 2.界面使用了 boostrap 进行美化
+- 2.界面使用了 bootstrap 进行美化
 - 3.后端采用 node js express 框架
 
 run with node and the use of database of mysql
