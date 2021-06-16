@@ -281,8 +281,11 @@ $(".reset").on("click", function () {
   $(".bulletinSearch").val("");
   $(".adminSearch").val("");
   $(".propertySearch").val();
-  render();
-  createPage();
+  getDorm();
+  getStudents();
+  getNews();
+  getAdmin();
+  getProperties();
 });
 
 //修改点击事件
