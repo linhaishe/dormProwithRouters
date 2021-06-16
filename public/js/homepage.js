@@ -247,10 +247,7 @@ $(".menu-list a").on("click", function () {
 
 $(".exit a").on("click", function () {
   //导向登入页面
-  $(location).attr(
-    "href",
-    "/DormitoryManagementSystemProject/pages/login.html"
-  );
+  $(location).attr("href", "index.html");
 
   //清空缓存
   localStorage.clear();

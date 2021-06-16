@@ -23,16 +23,16 @@
 
 //用户点击退出时，强制登入页面并清空用户数据
 
-$(".exit a").on("click", function () {
-  //导向登入页面
-  $(location).attr(
-    "href",
-    "/DormitoryManagementSystemProject/pages/login.html"
-  );
+// $(".exit a").on("click", function () {
+//   //导向登入页面
+//   $(location).attr(
+//     "href",
+//     "/DormitoryManagementSystemProject/pages/login.html"
+//   );
 
-  //清空缓存
-  localStorage.clear();
-});
+//   //清空缓存
+//   localStorage.clear();
+// });
 
 //添加学生点击事件
 
