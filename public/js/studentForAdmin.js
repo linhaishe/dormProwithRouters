@@ -67,6 +67,14 @@ for (let i = 0; i < $(".cancel").length; i++) {
     });
 }
 
+function renderTime(date) {
+  var dateee = new Date(date).toJSON();
+  return new Date(+new Date(dateee) + 8 * 3600 * 1000)
+    .toISOString()
+    .replace(/T/g, " ")
+    .replace(/\.[\d]{3}Z/, "");
+}
+
 var arr = [];
 var count = 10; //一页多少条数据
 var page = 1; //当前的页数
@@ -458,7 +466,7 @@ function createPayRecords() {
         v.amount +
         "</th>\
               <td>" +
-        v.payTime +
+        renderTime(v.payTime) +
         "</td>\
             </tr>\
 "

@@ -58,6 +58,14 @@ $(".exit a").on("click", function () {
   localStorage.clear();
 });
 
+function renderTime(date) {
+  var dateee = new Date(date).toJSON();
+  return new Date(+new Date(dateee) + 8 * 3600 * 1000)
+    .toISOString()
+    .replace(/T/g, " ")
+    .replace(/\.[\d]{3}Z/, "");
+}
+
 var arr = [];
 var count = 10; //一页多少条数据
 var page = 1; //当前的页数
@@ -96,7 +104,7 @@ function newsRender() {
         v.content +
         "</td>\
               <td>" +
-        v.uploadTime +
+        renderTime(v.uploadTime) +
         "</td>\
               <td>" +
         v.userName +

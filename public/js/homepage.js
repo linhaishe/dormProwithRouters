@@ -309,6 +309,14 @@ $(".reset").on("click", function () {
 //   }
 // }
 
+function renderTime(date) {
+  var dateee = new Date(date).toJSON();
+  return new Date(+new Date(dateee) + 8 * 3600 * 1000)
+    .toISOString()
+    .replace(/T/g, " ")
+    .replace(/\.[\d]{3}Z/, "");
+}
+
 var arr = []; //存所有的数据;
 var count1 = 5; //一页多少条数据
 var page = 1; //当前的页数
@@ -364,7 +372,7 @@ function createBulletin() {
         v.title +
         "</h5>\
             <small>" +
-        v.uploadTime +
+        renderTime(v.uploadTime) +
         '</small>\
           </div>\
           <p class="mb-1">' +
