@@ -282,10 +282,6 @@ $(".reset").on("click", function () {
   $(".adminSearch").val("");
   $(".propertySearch").val();
   getDorm();
-  getStudents();
-  getNews();
-  getAdmin();
-  getProperties();
 });
 
 //修改点击事件
