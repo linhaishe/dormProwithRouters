@@ -4,6 +4,12 @@ var db = require("../utils/db");
 
 //登入页面查询
 router.get("/login/getuser", function (req, res) {
+  // console.log("有人登入了", req.query);
+  // if (req.query.username == "aaa" && req.query.password == "111") {
+  //   res.json({ error: 0, msg: "登录成功！" });
+  // } else {
+  //   res.json({ error: 1, msg: "登录失败！" });
+  // }
   if (req.query.type == "管理员") {
     var sql =
       "select * from admins where adminId = " +
